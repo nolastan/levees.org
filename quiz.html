@@ -1,0 +1,63 @@
+---
+title: "Test your knowledge"
+summary: "Ten questions to separate facts from fairy tales about why the levees broke in New Orleans."
+---
+<section class="page-head container">
+  <span class="pill">Self-check</span>
+  <h1 class="display">Test your <em>knowledge</em></h1>
+  <p class="lede">Ten questions to separate facts from fairy tales. Pick an answer to see the explanation. Nothing is recorded.</p>
+</section>
+
+<section class="container" style="padding-bottom:4rem">
+  <form class="quiz" id="quiz" onsubmit="return false">
+    {% for item in site.data.quiz %}
+    {%- assign qi = forloop.index0 %}
+    <div class="quiz-q" data-answer="{{ item.answer }}">
+      <fieldset>
+        <legend><span class="num">Question {{ forloop.index }} of {{ site.data.quiz | size }}</span>{{ item.q }}</legend>
+        {% for opt in item.options %}
+        <label class="quiz-option"><input type="radio" name="q{{ qi }}" value="{{ forloop.index0 }}"> <span>{{ opt }}</span></label>
+        {% endfor %}
+      </fieldset>
+      <div class="quiz-explain" hidden aria-live="polite">
+        <strong class="verdict-text"></strong> {{ item.explain }}
+        <a href="{{ '/lessons/' | append: item.lesson | append: '/' | relative_url }}">Read the lesson →</a>
+      </div>
+    </div>
+    {% endfor %}
+    <p class="quiz-score" id="quiz-score" aria-live="polite">0 of {{ site.data.quiz | size }} answered</p>
+    <div class="quiz-result prose" id="quiz-result" hidden>
+      <p><strong>Everyone deserves to know the facts about the worst civil engineering disaster in U.S. history.</strong> Share this quiz, keep the <a href="{{ '/myths/' | relative_url }}">myth busters</a> handy, or try Levees.org's original <a href="https://levees.org/take-the-levee-quiz/">Levee Challenge</a>, peer reviewed by four independent academic reviewers with <em>Water Policy</em>.</p>
+    </div>
+  </form>
+</section>
+<script>
+(function () {
+  var qs = document.querySelectorAll('.quiz-q');
+  var total = qs.length, answered = 0, correct = 0;
+  var score = document.getElementById('quiz-score');
+  var result = document.getElementById('quiz-result');
+  qs.forEach(function (q) {
+    var right = q.getAttribute('data-answer');
+    q.addEventListener('change', function (e) {
+      if (q.dataset.done) return;
+      q.dataset.done = '1';
+      answered++;
+      var picked = e.target.value;
+      q.querySelectorAll('input').forEach(function (inp) {
+        inp.disabled = true;
+        var label = inp.closest('.quiz-option');
+        if (inp.value === right) label.classList.add('correct');
+        else if (inp.value === picked) label.classList.add('incorrect');
+      });
+      var ok = picked === right;
+      if (ok) correct++;
+      var ex = q.querySelector('.quiz-explain');
+      ex.querySelector('.verdict-text').textContent = ok ? 'Correct.' : 'Not quite.';
+      ex.hidden = false;
+      score.textContent = correct + ' correct · ' + answered + ' of ' + total + ' answered';
+      if (answered === total) result.hidden = false;
+    });
+  });
+})();
+</script>

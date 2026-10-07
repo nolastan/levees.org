@@ -1,0 +1,53 @@
+# Site settings for learn.levees.org (built by GitHub Pages with Jekyll)
+title: "Learn · Levees.org"
+short_title: "Learn"
+description: >-
+  The full and vetted story of why the levees broke in New Orleans during
+  Hurricane Katrina — and why it matters to the 62% of Americans who live in
+  counties protected by levees.
+url: "https://learn.levees.org"
+baseurl: ""
+lang: en
+
+# Opt out of the default GitHub Pages theme (Primer); this site ships its own layouts and CSS.
+theme: null
+
+main_site: "https://levees.org"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+
+permalink: pretty
+
+collections:
+  lessons:
+    output: true
+    permalink: /lessons/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: lessons
+    values:
+      layout: lesson
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - AGENTS.md
+  - CLAUDE.md
+  - docs/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .github/
+  - scripts/

@@ -1,0 +1,17 @@
+# Lessons are grouped into parts. Each lesson's front matter sets `part:` to one of these ids.
+- id: what-happened
+  title: "Part 1: What happened"
+  heading: "What <em>happened</em>"
+  blurb: "The morning of August 29, 2005, and the federal project that was supposed to keep the water out."
+- id: why-they-broke
+  title: "Part 2: Why the levees broke"
+  heading: "Why the levees <em>broke</em>"
+  blurb: "A breach-by-breach tour of the worst civil engineering disaster in U.S. history."
+- id: the-story
+  title: "Part 3: How the story got told"
+  heading: "How the story got <em>told</em>"
+  blurb: "The investigations, the courts, and the fairy tale that took flight before the water was pumped out."
+- id: why-it-matters
+  title: "Part 4: Why it matters to you"
+  heading: "Why it matters <em>to you</em>"
+  blurb: "What changed, who is still at risk, and how we remember."

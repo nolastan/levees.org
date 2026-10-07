@@ -1,0 +1,33 @@
+# Top navigation. `match` is the URL prefix that marks the item active.
+- title: Start here
+  url: /
+  match: "/"
+- title: Lessons
+  url: /lessons/
+  match: /lessons/
+- title: Myth busters
+  url: /myths/
+  match: /myths/
+- title: Timeline
+  url: /timeline/
+  match: /timeline/
+- title: The record
+  url: /library/
+  match: /library/
+  secondary: true
+- title: Glossary
+  url: /glossary/
+  match: /glossary/
+  secondary: true
+- title: Quiz
+  url: /quiz/
+  match: /quiz/
+  secondary: true
+- title: Visit
+  url: /visit/
+  match: /visit/
+  secondary: true
+- title: About
+  url: /about/
+  match: /about/
+  secondary: true

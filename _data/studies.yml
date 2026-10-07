@@ -1,0 +1,49 @@
+# Major levee failure investigations, newest first. Adapted from levees.org/major-levee-studies/.
+- title: "Interaction between the US Army Corps of Engineers and the Orleans Levee Board preceding the drainage canal wall failures in New Orleans"
+  date: "2015"
+  by: "J. David Rogers, G. Paul Kemp, H.J. Bosworth Jr., and Raymond Seed · Water Policy 17(4)"
+  image: /assets/images/study-water-policy.jpg
+  text: "This watershed paper retracts wrong conclusions made in the 2006 ILIT report about what caused the levee failures. The levees failed mainly due to a mistake the Army Corps made in the 1980s when interpreting the results of its levee load test study. The paper is also a “one stop shop” that addresses most, if not all, of the significant issues and events relating to the cause of the 2005 flooding."
+  verdict: "Corrects the record: the Orleans Levee Board did not cause the canal wall failures."
+  url: "https://iwaponline.com/wp/article/17/4/707-723/20452"
+- title: "Interagency Performance Evaluation Task Force (IPET)"
+  date: "June 2009 (final)"
+  by: "Convened by the U.S. Army Corps of Engineers · Lewis E. Link, John Jaeger, Jeremy Stevenson, et al."
+  image: /assets/images/study-ipet.jpg
+  text: "The Army Corps committed to a thorough investigation of how the New Orleans hurricane protection system performed, and tasked the American Society of Civil Engineers with an external peer review. The report is thorough and admits that the hurricane protection did not perform as designed. In 2019, the Corps removed it from its website."
+  verdict: "A self-study: managed by the agency responsible for the system's performance."
+  caution: true
+  url: "https://biotech.law.lsu.edu/katrina/ipet/ipet.html"
+- title: "The New Orleans Hurricane Protection System"
+  date: "April 2009"
+  by: "National Academy of Sciences / National Research Council"
+  image: /assets/images/study-nas.jpg
+  text: "The NAS reviewed the Corps-sponsored 7,500-page IPET draft final report, reflecting on the lessons learned and offering advice on improving hurricane protection for the New Orleans area. Perhaps most interesting is its complete lack of any discussion of the local New Orleans levee board."
+  url: "https://levees.org/2/wp-content/uploads/2022/08/The-New-Orleans-Hurricane-Protection-System-National-Academy-of-Science.pdf"
+- title: "Decision-Making Chronology for the Lake Pontchartrain and Vicinity Hurricane Protection Project"
+  date: "March 2008"
+  by: "Douglas Woolley and Leonard Shabman, for the U.S. Army Corps of Engineers"
+  image: /assets/images/study-chronology.jpg
+  text: "The 333-page report explains in detail why the levee protection was built as it was. Two key points are in the report but not in the executive summary: the Corps itself selected the high walls plan for the 17th Street Canal, and the Corps made a mistake in the 1980s when it chose to shorten the steel sheet pilings. Highly technical but thorough, because it had more time and resources than the earlier studies."
+  verdict: "Levees.org's recommended starting point for research."
+  url: "https://usace.contentdm.oclc.org/digital/collection/p16021coll2/id/885"
+- title: "The New Orleans Hurricane Protection System: What Went Wrong and Why"
+  date: "June 2007"
+  by: "American Society of Civil Engineers External Review Panel · C.F. Andersen, J.A. Battjes, D.E. Daniel, et al."
+  image: /assets/images/study-asce.jpg
+  text: "Convened at the request of the Corps' Chief of Engineers to examine and validate the methods, models, data and findings of IPET. The concise 82-page report is easily digestible for laypersons. It found that the majority of the damage was due to the levees failing. (Its accompanying press release was found to be misleading.)"
+  url: "https://levees.org/wp-content/uploads/2010/06/American-Society-of-Civil-Engineers-What-Went-Wrong-ERPreport-1.pdf"
+- title: "Team Louisiana: The Failure of the New Orleans Levee System during Hurricane Katrina"
+  date: "March 2007"
+  by: "Ivor van Heerden, G. Paul Kemp, Ezra C. Boyd, et al. · for the Louisiana Department of Transportation and Development"
+  image: /assets/images/study-team-louisiana.jpg
+  text: "Led by the deputy director of the LSU Hurricane Center on a budget of $130,000, plus $250,000 from the McKnight Foundation, which allowed the team to examine some of the Army Corps' modeling in detail. Dr. van Heerden might be the first person to suggest that the Army Corps was not being entirely honest with the public."
+  url: "https://levees.org/2/wp-content/uploads/2019/05/Team-LA-F26-FINAL-REPORT.pdf"
+- title: "Independent Levee Investigation Team (ILIT)"
+  date: "June 2006"
+  by: "Raymond Seed, Robert Bea, J. David Rogers, et al. · funded by the National Science Foundation"
+  image: /assets/images/study-ilit.jpg
+  text: "The first major study of the 2005 levee breaches. It found a large number of engineering errors and poor judgments. The team also wrongly concluded that the levees failed partly due to objections by the Orleans Levee Board to gates at the north ends of the drainage canals — a conclusion Drs. Rogers and Seed retracted in Water Policy in 2015."
+  verdict: "Partly retracted in 2015."
+  caution: true
+  url: "https://biotech.law.lsu.edu/katrina/ILIT/index.html"

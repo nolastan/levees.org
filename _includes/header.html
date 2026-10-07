@@ -1,0 +1,35 @@
+<header class="site-header">
+  <div class="brand">
+    <a class="brand-logo" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/images/logo.png' | relative_url }}" width="150" height="100" alt="Levees.org">
+    </a>
+    <div class="brand-text">
+      <strong>Learn with Levees.Org</strong>
+      <p>The full and vetted story of why the levees broke<br class="hide-sm"> in New Orleans during Hurricane Katrina</p>
+    </div>
+  </div>
+</header>
+<nav class="site-nav" aria-label="Main">
+  <ul>
+    {%- for item in site.data.navigation %}
+    {%- assign active = false %}
+    {%- if item.url == "/" and page.url == "/" %}{% assign active = true %}
+    {%- elsif item.url != "/" and page.url contains item.match %}{% assign active = true %}{% endif %}
+    <li class="{% if item.secondary %}nav-secondary{% endif %}"><a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+    {%- endfor %}
+    <li class="nav-more"><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="drawer">More…</button></li>
+  </ul>
+</nav>
+<div class="drawer" id="drawer" hidden>
+  <div class="drawer-backdrop" data-close></div>
+  <nav class="drawer-panel" aria-label="All pages">
+    <button type="button" class="drawer-close" data-close aria-label="Close menu">×</button>
+    <ul>
+      {%- for item in site.data.navigation %}
+      <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+      {%- endfor %}
+      <li><a href="{{ site.main_site }}">Levees.org home</a></li>
+      <li><a href="{{ site.main_site }}/donate/">Donate</a></li>
+    </ul>
+  </nav>
+</div>

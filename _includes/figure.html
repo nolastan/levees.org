@@ -1,0 +1,9 @@
+{%- comment -%}
+Usage: {% include figure.html src="/assets/images/x.jpg" alt="..." caption="..." credit="Photo/Name" size="wide|half|small" %}
+{%- endcomment -%}
+<figure class="figure{% if include.size %} figure-{{ include.size }}{% endif %}">
+  <a href="{{ include.src | relative_url }}"><img src="{{ include.src | relative_url }}" alt="{{ include.alt | default: include.caption | strip_html | escape }}" loading="lazy"></a>
+  {%- if include.caption or include.credit %}
+  <figcaption>{{ include.caption }}{% if include.credit %} <span class="credit">{{ include.credit }}</span>{% endif %}</figcaption>
+  {%- endif %}
+</figure>

@@ -1,0 +1,37 @@
+---
+title: "Myth busters"
+summary: "Public perception of the 2005 levee failures is largely based on falsehoods. Here are the facts, with sources."
+---
+<section class="page-head container">
+  <div class="section-head">
+    <div>
+      <span class="pill">Frequently asked questions</span>
+      <h1 class="display">Myth <em>busters</em></h1>
+      <p class="lede">Keep these facts at your fingertips. Myths and wrong information are still out there. You can help quell them.</p>
+    </div>
+    <div class="expert">
+      <img src="{{ '/assets/images/hj-bosworth.png' | relative_url }}" alt="H.J. Bosworth Jr., P.E.">
+      <blockquote>
+        “Public perception of levee failures and ongoing risk is largely based on falsehoods. We have done the fact-checking and are proud to present these truths.”
+        <cite>H.J. Bosworth Jr., P.E., civil engineer and Levees.org lead researcher</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" style="padding-top:3rem">
+  <div class="container">
+    <div class="myth-grid">
+      {% for m in site.data.myths %}
+      <article class="myth-card">
+        <h3><span class="tag">MYTH</span>{{ m.myth }}</h3>
+        <p class="truth"><span class="tag">TRUTH</span>{{ m.truth }}</p>
+        <p class="links">
+          {% if m.source.url %}<a href="{{ m.source.url }}">Source: {{ m.source.title }}</a>{% else %}<span>Source: {{ m.source.title }}</span>{% endif %}
+          {% if m.lesson %}<a href="{{ '/lessons/' | append: m.lesson | append: '/' | relative_url }}">Read the lesson →</a>{% endif %}
+        </p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

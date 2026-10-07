@@ -1,0 +1,91 @@
+# Self-check quiz. `answer` is the zero-based index of the correct option.
+- q: "Who was responsible for designing and building the hurricane protection system that failed in New Orleans in 2005?"
+  options:
+    - "The Orleans Levee Board"
+    - "The City of New Orleans"
+    - "The U.S. Army Corps of Engineers"
+    - "The State of Louisiana"
+  answer: 2
+  explain: "The Flood Control Act of 1965 made the U.S. Army Corps of Engineers solely responsible for the design and construction of the Lake Pontchartrain and Vicinity Hurricane Protection Project. Local levee boards handled maintenance."
+  lesson: a-federal-project
+- q: "When the 17th Street Canal floodwall failed, where was the water?"
+  options:
+    - "Pouring over the top of the wall"
+    - "Well below the top of the wall — about 2.6 feet below"
+    - "Exactly at the top of the wall"
+    - "The canal was dry; the breach came from the lake"
+  answer: 1
+  explain: "The walls on the 17th Street and London Avenue Canals failed with water well below their tops, at about half the load they were designed to hold. They were not overtopped."
+  lesson: 17th-street-canal
+- q: "What was the Army Corps' fatal shortcut?"
+  options:
+    - "Using concrete instead of steel"
+    - "Building the walls too tall"
+    - "Driving steel sheet piles about 17 feet deep instead of 31 to 46 feet, after misreading its own load test"
+    - "Skipping the annual inspections"
+  answer: 2
+  explain: "The Corps misinterpreted its 1985 E-99 sheet pile test and concluded deeper piles were “a wasteful expenditure.” The switch saved about $100 million."
+  lesson: the-fatal-shortcut
+- q: "About how much of New Orleans is at or above sea level?"
+  options:
+    - "None of it"
+    - "About 10%"
+    - "About half"
+    - "All of it"
+  answer: 2
+  explain: "Half of New Orleans is at or above sea level, including the French Quarter, Uptown, the Garden District, Bywater and the Lower Ninth Ward, according to research at Tulane and Xavier universities."
+  lesson: a-federal-project
+- q: "Before Hurricane Katrina, did officials warn New Orleanians that the levees could breach and fail?"
+  options:
+    - "Yes, repeatedly"
+    - "No. Even the most desperate evacuation appeals did not warn that the levees could breach."
+    - "Only residents of the Lower Ninth Ward were warned"
+    - "Yes, the Army Corps issued a formal warning"
+  answer: 1
+  explain: "The first suggestion that levees could fail came at 1:47 a.m. on August 29, in a memo to the White House Situation Room — six hours after the evacuation was already complete."
+  lesson: august-29-2005
+- q: "Why did the Army Corps pay no damages after a federal judge found it responsible for the canal floodwall failures?"
+  options:
+    - "The judge found the levee board equally responsible"
+    - "The victims did not have flood insurance"
+    - "The Flood Control Act of 1928 makes the federal government immune from liability for flood damage"
+    - "The statute of limitations had run out"
+  answer: 2
+  explain: "In January 2008, Judge Stanwood Duval placed responsibility squarely on the Army Corps, but Section 702c of the Flood Control Act of 1928 gave it sovereign immunity."
+  lesson: in-court
+- q: "In 2015, the authors of the first levee investigation published a new paper. What did it do?"
+  options:
+    - "Retracted their earlier conclusion that the Orleans Levee Board shared the blame"
+    - "Concluded the hurricane was too strong for any levee"
+    - "Blamed environmentalists for stopping the barrier plan"
+    - "Found that the levees did not fail"
+  answer: 0
+  explain: "In Water Policy, J. David Rogers, Raymond Seed and co-authors retracted the 2006 ILIT conclusion and laid the blame on the Corps' misinterpreted load test. The New York Times ran the story on its front page."
+  lesson: the-investigations
+- q: "What percentage of Americans live in counties protected by levees?"
+  options:
+    - "About 5%"
+    - "About 20%"
+    - "About 43%"
+    - "About 62%"
+  answer: 3
+  explain: "Sixty-two percent — more than 201 million people — according to FEMA data Levees.org obtained under the Freedom of Information Act in 2020."
+  lesson: levees-everywhere
+- q: "The pre-Katrina “drive-by levee inspections” that ended with lunch were conducted by whom?"
+  options:
+    - "The Orleans Levee Board, inspecting its own levees"
+    - "The Army Corps of Engineers, auditing the levee board's maintenance"
+    - "FEMA"
+    - "The Sewerage and Water Board"
+  answer: 1
+  explain: "They were the Army Corps' annual inspections of the levee board's maintenance — and visual inspections could never have found design flaws deep underground. The levee board was graded “Outstanding” from 1959 to 2004."
+  lesson: the-fairy-tale
+- q: "In 2022, at Levees.org's urging, what did the Associated Press do?"
+  options:
+    - "Stopped covering hurricanes"
+    - "Issued guidance telling reporters that levee failures played a major role in the devastation in New Orleans"
+    - "Renamed Hurricane Katrina"
+    - "Apologized to the Army Corps"
+  answer: 1
+  explain: "The AP's new guidance says: “In New Orleans, flaws in the design and construction of the federally built levee system led to multiple levee breaches and catastrophic flooding.”"
+  lesson: words-matter

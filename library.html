@@ -1,0 +1,71 @@
+---
+title: "The record"
+summary: "Every major levee failure investigation after Hurricane Katrina, the key court rulings, and the books and resources Levees.org recommends."
+---
+<section class="page-head container">
+  <span class="pill">Primary sources</span>
+  <h1 class="display">The <em>record</em></h1>
+  <p class="lede">Don't take our word for it. Here are the investigations, rulings and books behind every lesson on this site.</p>
+</section>
+
+<section class="container" style="padding-bottom:3rem">
+  <div class="section-head" style="margin-bottom:2rem">
+    <h2 class="section-title">Major levee <em>investigations</em></h2>
+    <p>Seven major studies, listed newest first. Levees.org is the only website that hosts every one of them, including the Army Corps' own IPET report.</p>
+  </div>
+  <div class="study-list">
+    {% for s in site.data.studies %}
+    <article class="study">
+      <img src="{{ s.image | relative_url }}" alt="Cover of {{ s.title | escape }}" loading="lazy">
+      <div>
+        <span class="date">{{ s.date }}</span>
+        <h3><a href="{{ s.url }}">{{ s.title }}</a></h3>
+        <p class="by">{{ s.by }}</p>
+        <p>{{ s.text }}</p>
+        {% if s.verdict %}<p class="verdict{% if s.caution %} caution{% endif %}">{{ s.verdict }}</p>{% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container prose" style="max-width:56rem">
+    <h2>In court</h2>
+    <ul>
+      <li><strong>January 2008 — the LEVEE case.</strong> Judge Stanwood Duval, U.S. District Court for the Eastern District of Louisiana, places responsibility for the 17th Street and London Avenue Canal floodwall failures on the Army Corps, but dismisses the case under the Flood Control Act of 1928. <a href="{{ '/lessons/in-court/' | relative_url }}">Lesson →</a></li>
+      <li><strong>November 2009 — the MR-GO case.</strong> Judge Duval holds the Corps liable for flooding caused by its mismanagement of the Mississippi River Gulf Outlet. Affirmed by the Fifth Circuit in March 2012, then reversed by the same panel six months later; the Supreme Court declined to hear the appeal.</li>
+      <li><strong>September 2009 — levee district settlements.</strong> Insurers for the pre-Katrina levee districts settle a class action. A settlement is not an admission of wrongdoing.</li>
+    </ul>
+
+    <h2>Books</h2>
+    <ul>
+      <li><a href="https://www.wordswhisperedinwater.com"><em>Words Whispered in Water: Why the Levees Broke in Hurricane Katrina</em></a> by Sandy Rosenthal (Mango, 2020; Anniversary Edition, Turner, 2025). Winner of the Nautilus Award for Journalism &amp; Investigative Reporting.</li>
+      <li><em>Path of Destruction</em> by John McQuaid and Mark Schleifstein (Little, Brown, 2006).</li>
+      <li><em>The Storm: What Went Wrong and Why During Hurricane Katrina</em> by Ivor van Heerden (2006).</li>
+      <li><em>Breach of Faith</em> by Jed Horne (2006).</li>
+      <li><em>Catastrophe in the Making</em> by William R. Freudenburg, Robert Gramling, Shirley Laska and Kai T. Erikson (Island Press, 2009), which cites the work of Levees.org.</li>
+      <li><em>Facing Catastrophe</em> by Robert R.M. Verchick (Harvard University Press, 2010).</li>
+      <li><em>Rising Tide</em> by John M. Barry, on the Mississippi River flood of 1927.</li>
+    </ul>
+    <p>Read Sandy Rosenthal's <a href="https://levees.org/book-reviews/">book reviews</a> at Levees.org.</p>
+
+    <h2>Film, audio and tours</h2>
+    <ul>
+      <li><em>The Big Uneasy</em> (2010), a documentary by Harry Shearer about the levee failures.</li>
+      <li><em>Floodlines</em> (2020), the award-winning podcast from <em>The Atlantic</em>, which heavily features Levees.org.</li>
+      <li><a href="https://pod.link/1779795344"><em>The Slingshot</em></a>, the podcast from Levees.org.</li>
+      <li>The <a href="https://levees.org/take-a-virtual-levee-breach-tour/">virtual levee breach tour</a> on NewOrleansHistorical.org, created with UNO, the Louisiana State Museum and the New Orleans Public Library.</li>
+    </ul>
+
+    <h2>Levees.org resources</h2>
+    <ul>
+      <li><a href="https://levees.org/levee-exhibition-full-length-version/">Levee Exhibit with Photos</a> — the full, expert-reviewed text of the Levee Exhibit Hall.</li>
+      <li><a href="https://levees.org/the-spectacular-failure-of-the-outfall-canals-in-new-orleans-during-katrina/">The Spectacular Failure of the Outfall Canals</a> by Sandy Rosenthal and H.J. Bosworth Jr.</li>
+      <li><a href="https://levees.org/counties-with-levees/">U.S. Counties with Levees</a> — the map and FEMA data.</li>
+      <li><a href="https://levees.org/myth-busters-by-levees-org/">Frequently Asked Questions</a></li>
+      <li><a href="https://levees.org/recent-media-hits/">National press</a> coverage of Levees.org.</li>
+      <li><a href="https://levees.org/blog/">News</a> — more than 800 posts since 2005.</li>
+    </ul>
+  </div>
+</section>

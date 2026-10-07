@@ -1,0 +1,166 @@
+# Timeline entries. `era` rows are section headings. `key: true` highlights a turning point.
+# `link` may be a site path (starting with /) or a full URL.
+- era: "Before the storm"
+- when: "1897"
+  title: "A sinking coast is predicted"
+  text: "Civil engineer Elmer L. Corthell writes in National Geographic that levees withholding sediment from the delta, combined with subsidence, will one day require a protective levee against the Gulf."
+  link: /lessons/a-federal-project/
+- when: "1923"
+  title: "The Industrial Canal opens"
+  text: "The 5.5-mile canal connects Lake Pontchartrain to the Mississippi River and splits the Ninth Ward in two."
+  link: /lessons/industrial-canal/
+- when: "1928"
+  title: "Flood Control Act of 1928"
+  text: "Section 702c makes the United States immune from liability for damage caused by floods — including floods caused by failed federal flood control projects."
+  link: /lessons/in-court/
+- when: "1965"
+  sub: "September"
+  title: "Hurricane Betsy"
+  text: "The Industrial Canal breaches on its east side. Eighty percent of the Lower Ninth Ward goes underwater; the city reports 81 deaths. The MR-GO shipping channel opens the same year."
+  link: /lessons/industrial-canal/
+- when: "1965"
+  title: "Flood Control Act of 1965"
+  text: "Congress authorizes the Lake Pontchartrain and Vicinity Hurricane Protection Project and makes the U.S. Army Corps of Engineers solely responsible for its design and construction."
+  key: true
+  link: /lessons/a-federal-project/
+- when: "1970–1977"
+  title: "The barrier plan stalls"
+  text: "The Corps designs sea gates at the Rigolets and Chef Menteur passes. A court finds its four-page environmental impact statement inadequate. The Corps never writes a better one."
+  link: /lessons/the-fairy-tale/
+- when: "1982"
+  title: "GAO faults the Corps' pace"
+  text: "A General Accounting Office report reprimands the Army Corps for its glacial pace in building New Orleans' hurricane protection."
+  link: /lessons/a-federal-project/
+- when: "1985"
+  title: "The E-99 sheet pile test"
+  text: "The Corps begins a sheet pile load test near Morgan City. It misreads the results and concludes sheet piles need go no deeper than about 17 feet, instead of 31 to 46. The shortcut saves about $100 million."
+  key: true
+  link: /lessons/the-fatal-shortcut/
+- when: "1990–1991"
+  title: "Higher walls for the drainage canals"
+  text: "After the Corps itself chose higher walls for the 17th Street Canal, the Orleans Levee Board openly lobbies Congress for the same plan on the London Avenue and Orleans Avenue Canals. Congress orders it."
+  link: /lessons/the-fairy-tale/
+- when: "1999–2000"
+  title: "Canal walls completed"
+  text: "The raised floodwalls along the 17th Street and London Avenue Canals are completed — with sheet piles that are too short."
+  link: /lessons/17th-street-canal/
+
+- era: "August 2005"
+- when: "Aug 26"
+  sub: "Friday"
+  title: "The forecast shifts"
+  text: "Late in the afternoon, every forecast model shifts west and New Orleans lands in the center of the cone. Governor Blanco declares a state of emergency."
+  link: /lessons/august-29-2005/
+- when: "Aug 27"
+  sub: "Saturday"
+  title: "Contraflow begins"
+  text: "By 4:00 p.m., all inbound lanes are reversed. About 93% of the region evacuates — the most successful rapid evacuation of a major U.S. city. No one warns that the levees could break."
+  link: /lessons/august-29-2005/
+- when: "Aug 29"
+  sub: "4:30 a.m."
+  title: "First water at the Industrial Canal"
+  text: "Water blows out a sandbag plug where a damaged floodgate was missing at the CSX Railroad crossing."
+  link: /lessons/industrial-canal/
+- when: "Aug 29"
+  sub: "Early morning"
+  title: "The east washes away"
+  text: "Levees of sand and shell along the GIWW and MR-GO erode, flooding New Orleans East and virtually all of St. Bernard Parish. Breaches open on both sides of the Industrial Canal."
+  link: /lessons/new-orleans-east-and-st-bernard/
+- when: "Aug 29"
+  sub: "Mid-morning"
+  title: "The canal walls fall"
+  text: "Floodwalls fail on both sides of the London Avenue Canal and, between 8:45 and 9:45 a.m., on the 17th Street Canal — with water well below their tops. Eighty percent of New Orleans floods."
+  key: true
+  link: /lessons/17th-street-canal/
+- when: "Sept 28"
+  sub: "2005"
+  title: "The fairy tale begins"
+  text: "Congressional testimony based on a 22-year-old report suggests local sponsors and environmentalists hamstrung the Corps."
+  link: /lessons/the-fairy-tale/
+- when: "Oct 20"
+  sub: "2005"
+  title: "“Levee board reform” is drafted"
+  text: "Seven weeks after the flood, a business group has a plan to reorganize the levee boards — years before any investigation is complete."
+  link: /lessons/the-fairy-tale/
+- when: "Dec 3"
+  sub: "2005"
+  title: "Levees.org goes online"
+  text: "Sandy Rosenthal and her 15-year-old son Stanford launch Levees.org to teach America why the levees broke."
+  key: true
+  link: /about/
+
+- era: "The record"
+- when: "Jan 21"
+  sub: "2006"
+  title: "Levees.org's kickoff rally"
+  text: "At the Corps' New Orleans District headquarters: “Metro New Orleans was wiped out by a federal project done wrong.”"
+  link: "https://levees.org/2006/01/21/founders-rally-day-speech/"
+- when: "June 2006"
+  title: "ILIT report"
+  text: "The first independent investigation finds many engineering errors — and wrongly blames the Orleans Levee Board in part. On June 1, the Corps' commander calls the system “a system in name only.”"
+  link: /lessons/the-investigations/
+- when: "2006"
+  title: "Levee boards consolidated"
+  text: "Louisiana voters approve regional flood protection authorities with expert members — the first in the nation."
+  link: /lessons/what-changed/
+- when: "2007"
+  title: "Team Louisiana, ASCE report, and national reform"
+  text: "Team Louisiana and the ASCE External Review Panel publish. Congress passes the National Levee Safety Act and Corps reform in the Water Resources Development Act."
+  link: /lessons/what-changed/
+- when: "Jan 2008"
+  title: "Judge Duval: the Corps is responsible"
+  text: "A federal judge places responsibility for the 17th Street and London Avenue floodwall failures on the Army Corps — but the 1928 law makes it immune."
+  key: true
+  link: /lessons/in-court/
+- when: "March 2008"
+  title: "The Decision-Making Chronology"
+  text: "The federal government's own 333-page history reveals the botched E-99 study and the Corps' choice of higher walls for the 17th Street Canal."
+  link: /lessons/the-fatal-shortcut/
+- when: "Dec 2008"
+  title: "The Corps' online campaign exposed"
+  text: "Sandy Rosenthal traces anonymous attacks on Levees.org and other Corps critics to Army Corps computers."
+  link: /lessons/words-matter/
+- when: "2009"
+  title: "IPET final report; the MR-GO ruling"
+  text: "The Corps' own investigation admits the system did not perform as designed. In November, Judge Duval holds the Corps liable for MR-GO flooding. Levees.org finds 55% of Americans live in counties with levees."
+  link: /lessons/in-court/
+- when: "2010–2015"
+  title: "Plaques at the breach sites"
+  text: "Levees.org installs Louisiana State Historic Plaques at the 17th Street Canal (2010), London Avenue Canal (2011) and Industrial Canal (2015) breach sites."
+  link: /lessons/remembering-and-learning/
+- when: "2012"
+  title: "The commander's admission"
+  text: "Lt. Gen. Carl Strock admits he had no documentation for his claim that local officials shared the blame. An appeals court reverses the MR-GO ruling."
+  link: /lessons/the-fairy-tale/
+- when: "2015"
+  title: "The retraction"
+  text: "In Water Policy, the first investigation's lead authors retract their conclusion blaming the levee board. The New York Times runs it on the front page. The Levee Exhibit Hall & Rain Garden opens."
+  key: true
+  link: /lessons/the-investigations/
+
+- era: "Since then"
+- when: "2017"
+  title: "HB266 becomes law"
+  text: "Levees.org's members help pass term limits for the flood authority nominating committee, 37–0 and 97–0."
+  link: /lessons/what-changed/
+- when: "2019"
+  title: "The Flooded House Museum opens"
+  text: "A life-sized diorama at the London Avenue Canal breach shows what returning homeowners found."
+  link: /visit/
+- when: "2020"
+  title: "Words Whispered in Water; 62% of Americans"
+  text: "Sandy Rosenthal's book is published. New FEMA data shows 62% of Americans live in counties protected by levees."
+  link: /lessons/levees-everywhere/
+- when: "2022"
+  title: "The AP changes its style guide"
+  text: "The Associated Press tells reporters worldwide that levee failures played a major role in the devastation in New Orleans. The national levee safety program finally launches."
+  key: true
+  link: /lessons/words-matter/
+- when: "2023"
+  title: "Engineering Failures Education"
+  text: "Levees.org launches a campaign to require every U.S. engineering student to learn about engineering failures."
+  link: /lessons/remembering-and-learning/
+- when: "2025"
+  title: "Twenty years"
+  text: "The 20th anniversary of the levee breaches. The anniversary edition of Words Whispered in Water is published."
+  link: "https://www.wordswhisperedinwater.com"

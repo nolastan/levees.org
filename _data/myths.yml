@@ -1,0 +1,67 @@
+# Myth busters. Adapted from levees.org/myth-busters-by-levees-org/ and the Levee Exhibit.
+# `lesson` is the slug of the lesson that covers the topic in depth.
+- myth: "New Orleans is below sea level."
+  truth: "Half of New Orleans is at or well above sea level."
+  source: { title: "Tulane School of Architecture / Center for Bioenvironmental Research", url: "http://richcampanella.com/assets/pdf/study_Campanella%20analysis%20on%20Above-Sea-Level%20New%20Orleans.pdf" }
+  lesson: a-federal-project
+
+- myth: "Hurricane Katrina flooded New Orleans."
+  truth: "The levees and floodwalls designed and built by the U.S. Army Corps of Engineers broke in about 50 places. Many failed with water well below their tops. The American Society of Civil Engineers concluded the majority of the flooding was due to the levees failing."
+  source: { title: "ASCE External Review Panel, 2007", url: "https://levees.org/wp-content/uploads/2010/06/American-Society-of-Civil-Engineers-What-Went-Wrong-ERPreport-1.pdf" }
+  lesson: words-matter
+
+- myth: "The Orleans Levee Board forced the Army Corps of Engineers to build the inadequate levee system that failed during Hurricane Katrina."
+  truth: "As reported in the New York Times, experts J. David Rogers and Raymond Seed retracted this erroneous conclusion from their 2006 levee investigation. The levees failed mainly due to a mistake the Army Corps made in the 1980s when interpreting the results of its own load test."
+  source: { title: "Water Policy, Vol. 17, Issue 4", url: "https://iwaponline.com/wp/article/17/4/707-723/20452" }
+  lesson: the-fairy-tale
+
+- myth: "The Orleans Levee Board spent only a few hours annually inspecting the levees before going to lunch."
+  truth: "The Army Corps of Engineers spent only a few hours annually inspecting the levee districts' maintenance before going to lunch. From 1959 to 2004 the Orleans Levee District was graded “Outstanding,” and no visual inspection could have found design flaws deep underground."
+  source: { title: "Water Policy, Vol. 17, Issue 4", url: "https://iwaponline.com/wp/article/17/4/707-723/20452" }
+  lesson: the-fairy-tale
+
+- myth: "Environmentalists blocked the Army Corps' original plan for massive barriers and forced the agency to build an inferior design."
+  truth: "A court required the Corps to write more than a four-page environmental impact statement. The Corps never did. Its own 1980 analysis concluded that higher levees were less costly, less damaging to the environment and more acceptable to local interests."
+  source: { title: "Levee Exhibit: Role of Environmentalists", url: "https://levees.org/levee-exhibition-full-length-version/" }
+  lesson: the-fairy-tale
+
+- myth: "The Army Corps of Engineers admitted fault for the failure of its levee system."
+  truth: "No Corps official accepted responsibility for the failure of the levees without simultaneously — and wrongly — directing blame toward local officials and environmental groups. In 2012, the Corps' former commander admitted he had no data to back up those claims."
+  source: { title: "Water Policy, Vol. 17, Issue 4", url: "https://iwaponline.com/wp/article/17/4/707-723/20452" }
+  lesson: the-fairy-tale
+
+- myth: "As Katrina advanced, residents of New Orleans were warned the levees could breach."
+  truth: "Even the most desperate appeals from local, state or federal officials did not warn that the levees could breach and fail. The first suggestion came at 1:47 a.m. in a memo to the White House Situation Room, six hours after the evacuation was completed."
+  source: { title: "McQuaid and Schleifstein, Path of Destruction (2006), p. 179" }
+  lesson: august-29-2005
+
+- myth: "New Orleans has a peculiar geography in that it relies heavily on levees for protection."
+  truth: "Sixty-two percent of the U.S. population — more than 201 million people — lives in counties protected by levees."
+  source: { title: "FEMA data obtained by Levees.org under FOIA", url: "https://levees.org/counties-with-levees/" }
+  lesson: levees-everywhere
+
+- myth: "The vast majority of homeowner losses in New Orleans were uninsured."
+  truth: "Before Katrina, more New Orleans homeowners per capita had flood insurance than the rest of the nation, according to data gathered by Donald Powell of the Bush administration."
+  source: { title: "New Orleans Times-Picayune, March 2006", url: "https://levees.org/wp-content/uploads/2011/04/After-Katrina-Pundits-Criticized-New-Orleans.pdf" }
+  lesson: august-29-2005
+
+- myth: "The local levee districts must be guilty of negligent maintenance, because they settled."
+  truth: "Judge Stanwood Duval's 2009 settlement in the class action lawsuit against the pre-Katrina levee districts is neither proof of culpability nor acceptance of responsibility. The money came from insurers protecting themselves from bad-faith claims. It's a settlement, and nothing more."
+  source: { title: "What does that Katrina check really mean?", url: "https://levees.org/2017/08/10/what-does-that-katrina-check-really-mean/" }
+  lesson: in-court
+
+- myth: "Local politicians stole the federal levee money."
+  truth: "Contracts for both the design and construction of the hurricane protection belonged to the U.S. Army Corps of Engineers, as mandated by the Flood Control Act of 1965. Federal, state and parish investigations of levee corruption were closed with no indictments."
+  source: { title: "Levees.org FAQ", url: "https://levees.org/faq/didn%e2%80%99t-the-local-politicians-divert-federal-levee-money-into-local-projects/" }
+  lesson: a-federal-project
+
+- myth: "After the storm, the levee boards were “reformed” to be like other levee districts in the U.S."
+  truth: "New Orleans was the first urban area in the nation to create a regional levee board with experts. Louisiana had to write the law from scratch, because no model existed. California soon followed."
+  source: { title: "Myth Buster #6", url: "https://levees.org/2011/04/21/myth-buster-6-new-orleans-is-first-in-nation-to-place-experts-on-local-levee-boards/" }
+  lesson: what-changed
+
+- myth: "Congress gave New Orleans $110 billion. Isn't that enough?"
+  truth: "Federal allocations covered three hurricanes (Katrina, Rita and Wilma) across five Gulf states. The bulk of early funds went to emergency housing, aid and cleanup, and almost $20 billion was flood insurance payouts on policies people had paid for."
+  source: { title: "Levees.org FAQ, citing the Brookings Institution", url: "https://levees.org/faq/congress-gave-you-110-billion-isnt-that-enough/" }
+  lesson: a-federal-project
+

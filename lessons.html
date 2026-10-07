@@ -1,0 +1,26 @@
+---
+title: "Lessons"
+permalink: /lessons/
+summary: "Fifteen short lessons, in four parts, on why the levees broke in New Orleans during Hurricane Katrina — and why it matters to every American who lives behind a levee."
+---
+{%- assign lessons = site.lessons | sort: "order" -%}
+<section class="page-head container">
+  <span class="pill">The course</span>
+  <h1 class="display">Fifteen lessons, <em>four parts</em></h1>
+  <p class="lede">Read them in order, or jump to the part you need. Each lesson takes five to ten minutes and links to the original Levees.org posts and primary sources.</p>
+</section>
+
+<section class="container" style="padding-bottom:3rem">
+  {% for part in site.data.parts %}
+  <div class="part-block" id="{{ part.id }}">
+    <span class="pill pill-light">{{ part.title | split: ":" | first }}</span>
+    <h2 class="section-title" style="margin-top:.75rem">{{ part.heading }}</h2>
+    <p>{{ part.blurb }}</p>
+    <div class="lesson-grid">
+      {% for l in lessons %}{% if l.part == part.id %}
+      {% include lesson-card.html lesson=l %}
+      {% endif %}{% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</section>

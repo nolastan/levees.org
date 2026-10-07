@@ -1,0 +1,137 @@
+---
+title: "Start here"
+body_class: home
+summary: "The full and vetted story of why the levees broke in New Orleans during Hurricane Katrina, in fifteen short lessons from Levees.org."
+---
+{%- assign lessons = site.lessons | sort: "order" -%}
+{%- assign first = lessons | first -%}
+<section class="hero container">
+  <a class="banner-link" href="{{ '/lessons/words-matter/' | relative_url }}">Why we never say “Katrina flooded New Orleans” →</a>
+  <div class="hero-grid">
+    <figure class="hero-photo">
+      <img src="{{ '/assets/images/plaque-reveal-vertical.jpg' | relative_url }}" alt="Residents unveil the historic plaque at the Industrial Canal breach site in the Lower Ninth Ward">
+      <figcaption>Unveiling the historic plaque at the Industrial Canal breach, Lower Ninth Ward, 2015.</figcaption>
+    </figure>
+    <div>
+      <h1 class="display display-xl">Why the <em>levees broke</em></h1>
+      <p class="lede">The full and vetted story of the worst civil engineering disaster in U.S. history — in fifteen short lessons.</p>
+      <div class="btn-row">
+        <a class="btn" href="{{ first.url | relative_url }}"><span>Start the first lesson</span>
+          <svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M6.83 5.29 2.59 1.05a1 1 0 0 0-1.42 1.41L4.71 6 1.17 9.54a1 1 0 0 0 1.42 1.41l4.24-4.24a1 1 0 0 0 0-1.42Z" fill="#FFF2EE"/></svg>
+        </a>
+        <a class="btn-outline" href="{{ '/lessons/' | relative_url }}">See all lessons</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <span class="pill">The short answer</span>
+    <p class="answer" style="margin-top:1.25rem">On August 29, 2005, levees and floodwalls built by the <strong>U.S. Army Corps of Engineers</strong> broke in about 50 places, flooding 80% of New Orleans. Many of the walls fell over with the water <strong>well below their tops</strong>. In the 1980s, the Corps had misread its own load test and driven steel sheet piles <strong>17 feet deep instead of 31 to 46</strong> — saving about $100 million. A federal judge found the Corps responsible. A 1928 law means it never had to pay.</p>
+    <div class="stats">
+      <div class="stat"><span class="stat-number">1,392</span><p>deaths from Hurricane Katrina, per the National Hurricane Center. Levee failures led to the deaths of hundreds.</p></div>
+      <div class="stat"><span class="stat-number">~50</span><p>breaches in the federal hurricane protection system</p></div>
+      <div class="stat"><span class="stat-number">$100M</span><p>saved by the Corps' decision to short-sheet the steel pilings</p></div>
+      <div class="stat"><span class="stat-number">62%</span><p>of Americans live in counties protected by levees</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="pill">The course</span>
+        <h2 class="section-title" style="margin-top:.75rem">Four parts, <em>fifteen lessons</em></h2>
+      </div>
+      <p>Each lesson takes five to ten minutes, draws on two decades of Levees.org research, and links to the primary sources.</p>
+    </div>
+    {% for part in site.data.parts %}
+    <div class="part-block" id="{{ part.id }}">
+      <h3 style="font-size:1.5rem">{{ part.heading }}</h3>
+      <p>{{ part.blurb }}</p>
+      <div class="lesson-grid">
+        {% for l in lessons %}{% if l.part == part.id %}
+        {% include lesson-card.html lesson=l %}
+        {% endif %}{% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section-dark quote-band">
+  <img class="star" src="{{ '/assets/images/star-dark-bg.svg' | relative_url }}" alt="">
+  <div class="container" style="position:relative">
+    <span class="pill pill-light">No one blames the iceberg</span>
+    <blockquote style="margin-top:1.5rem">“In 1912, the Titanic sank and no one blames the iceberg. Levees.org will say ‘mission accomplished’ when, with regard to the catastrophic flooding during Katrina, no one blames the hurricane.”
+      <cite>— Levees.org</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="pill">Keep exploring</span>
+        <h2 class="section-title" style="margin-top:.75rem">Tools for <em>the truth</em></h2>
+      </div>
+      <p>Quick references for students, reporters and anyone who wants the facts at their fingertips.</p>
+    </div>
+    <div class="feature-grid">
+      <a class="feature" href="{{ '/myths/' | relative_url }}">
+        <img src="{{ '/assets/images/man-on-roof.jpg' | relative_url }}" alt="">
+        <div class="feature-body"><span class="feature-kicker">Myth vs. truth</span><h3>Myth busters</h3><p>{{ site.data.myths | size }} common myths about the 2005 flooding, and the facts that bust them.</p></div>
+        <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
+      </a>
+      <a class="feature" href="{{ '/timeline/' | relative_url }}">
+        <img src="{{ '/assets/images/authorized-plan.jpg' | relative_url }}" alt="">
+        <div class="feature-body"><span class="feature-kicker">1897 – today</span><h3>Timeline</h3><p>The levee failures were 40 years in the making. See them in order.</p></div>
+        <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
+      </a>
+      <a class="feature" href="{{ '/library/' | relative_url }}">
+        <img src="{{ '/assets/images/water-policy-overlay.jpg' | relative_url }}" alt="">
+        <div class="feature-body"><span class="feature-kicker">Primary sources</span><h3>The record</h3><p>Every major levee investigation, the court rulings, and the books to read next.</p></div>
+        <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
+      </a>
+      <a class="feature" href="{{ '/quiz/' | relative_url }}">
+        <img src="{{ '/assets/images/bellaire-before-after.jpg' | relative_url }}" alt="">
+        <div class="feature-body"><span class="feature-kicker">Ten questions</span><h3>Test your knowledge</h3><p>Separate facts from fairy tales.</p></div>
+        <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2 class="section-title">Additional <em>resources</em></h2>
+      </div>
+      <p>Learn more about the 2005 New Orleans levee failures and gain the tools to advocate for your community.</p>
+    </div>
+    <div class="resource-grid">
+      <div class="resource">
+        <img src="{{ '/assets/images/book-cover-2025.jpg' | relative_url }}" alt="Cover of Words Whispered in Water, Anniversary Edition" style="object-fit:contain;background:#fff">
+        <h3>Words Whispered in Water</h3>
+        <p>Founder Sandy Rosenthal's award-winning account of why the levees broke and how the truth was buried.</p>
+        <a class="btn-outline" href="https://www.wordswhisperedinwater.com?ref=learnleveesorg">Get the book ↗</a>
+      </div>
+      <div class="resource">
+        <img src="{{ '/assets/images/exhibit-hall.jpg' | relative_url }}" alt="Founder Sandy Rosenthal at the Levee Exhibit Hall">
+        <h3>Visit the breach sites</h3>
+        <p>The Flooded House Museum and Levee Exhibit Hall are free and open every day at the London Avenue Canal breach.</p>
+        <a class="btn-outline" href="{{ '/visit/' | relative_url }}">Plan your visit →</a>
+      </div>
+      <div class="resource">
+        <img src="{{ '/assets/images/sandy-podium.jpg' | relative_url }}" alt="Sandy Rosenthal speaking at a podium">
+        <h3>Join Levees.org</h3>
+        <p>Advocate for safe levees in your community and nationwide. It's free: 1–2 emails monthly, directly from Sandy.</p>
+        <a class="btn-outline" href="https://levees.org">Sign up at Levees.org ↗</a>
+      </div>
+    </div>
+  </div>
+</section>

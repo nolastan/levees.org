@@ -1,0 +1,10 @@
+{%- assign l = include.lesson -%}
+<a class="lesson-card" href="{{ l.url | relative_url }}">
+  {% if l.image %}<img src="{{ l.image | relative_url }}" alt="" loading="lazy">{% endif %}
+  <div class="card-body">
+    <span class="num">Lesson {{ l.order }}{% if l.reading_time %} · {{ l.reading_time }} min{% endif %}</span>
+    <h3>{{ l.title }}</h3>
+    <p>{{ l.summary }}</p>
+    <span class="go">Start lesson →</span>
+  </div>
+</a>

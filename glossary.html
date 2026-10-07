@@ -1,0 +1,19 @@
+---
+title: "Glossary"
+summary: "Plain-language definitions of the engineering, legal and historical terms you'll meet in the story of the 2005 levee failures."
+---
+{%- assign terms = site.data.glossary | sort_natural: "term" -%}
+<section class="page-head container">
+  <span class="pill">Glossary of terms</span>
+  <h1 class="display">Speak the <em>language</em></h1>
+  <p class="lede">From breach to T-wall: the words you need to understand why the levees broke.</p>
+</section>
+
+<section class="container" style="padding-bottom:4rem">
+  <dl class="glossary">
+    {% for g in terms %}
+    <dt id="{{ g.term | slugify }}">{{ g.term }}{% if g.aka %} <small>({{ g.aka }})</small>{% endif %}</dt>
+    <dd>{{ g.def }}{% if g.see %} <a href="{{ '/lessons/' | append: g.see | append: '/' | relative_url }}">Read more →</a>{% endif %}</dd>
+    {% endfor %}
+  </dl>
+</section>

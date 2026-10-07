@@ -1,0 +1,28 @@
+---
+title: "Timeline"
+summary: "From Hurricane Betsy and the Flood Control Act of 1965 to the Associated Press style guide change in 2022: the levee breach event in order."
+---
+<section class="page-head container">
+  <span class="pill">1897 – today</span>
+  <h1 class="display">The <em>timeline</em></h1>
+  <p class="lede">The failure of the levees was 40 years in the making. Here is the story in order, with links to the lesson that explains each step.</p>
+</section>
+
+<section class="container" style="padding-bottom:4rem">
+  <ol class="timeline">
+    {% for t in site.data.timeline %}
+      {% if t.era %}
+      <li class="era"><h2>{{ t.era }}</h2></li>
+      {% else %}
+      <li class="{% if t.key %}key{% endif %}">
+        <div class="when">{{ t.when }}{% if t.sub %}<small>{{ t.sub }}</small>{% endif %}</div>
+        <div class="what">
+          <h3>{{ t.title }}</h3>
+          <p>{{ t.text }}</p>
+          {% if t.link %}{% assign first = t.link | slice: 0 %}<a href="{% if first == '/' %}{{ t.link | relative_url }}{% else %}{{ t.link }}{% endif %}">Learn more →</a>{% endif %}
+        </div>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</section>

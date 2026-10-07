@@ -1,0 +1,75 @@
+---
+layout: default
+---
+{%- assign lessons = site.lessons | sort: "order" -%}
+{%- assign total = lessons | size -%}
+{%- for l in lessons -%}
+  {%- if l.url == page.url -%}
+    {%- assign idx = forloop.index0 -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign prev_i = idx | minus: 1 -%}
+{%- assign next_i = idx | plus: 1 -%}
+{%- assign part = site.data.parts | where: "id", page.part | first -%}
+<article class="lesson">
+  <header class="lesson-hero container">
+    <div class="lesson-hero-text">
+      <p class="eyebrow">
+        <span class="pill">Lesson {{ page.order }} of {{ total }}</span>
+        {% if part %}<a class="part-link" href="{{ '/lessons/' | relative_url }}#{{ part.id }}">{{ part.title }}</a>{% endif %}
+      </p>
+      <h1 class="display">{{ page.heading | default: page.title }}</h1>
+      {% if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+      {% if page.reading_time %}<p class="meta">{{ page.reading_time }} minute read</p>{% endif %}
+    </div>
+    {% if page.image %}
+    <figure class="lesson-hero-figure">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | escape }}">
+      {% if page.image_credit %}<figcaption>{{ page.image_credit }}</figcaption>{% endif %}
+    </figure>
+    {% endif %}
+  </header>
+
+  {% if page.takeaways %}
+  <aside class="container takeaways" aria-label="The short version">
+    <h2>The short version</h2>
+    <ul>
+      {% for t in page.takeaways %}<li>{{ t | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>{% endfor %}
+    </ul>
+  </aside>
+  {% endif %}
+
+  <div class="container prose">
+    {{ content }}
+  </div>
+
+  {% if page.further or page.sources %}
+  <section class="container go-deeper">
+    {% if page.further %}
+    <div>
+      <h2>Go deeper</h2>
+      <ul class="link-list">
+        {% for f in page.further %}<li><a href="{{ f.url }}">{{ f.title }}</a>{% if f.note %}<span>{{ f.note }}</span>{% endif %}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% if page.sources %}
+    <div>
+      <h2>Sources</h2>
+      <ul class="source-list">
+        {% for s in page.sources %}<li>{% if s.url %}<a href="{{ s.url }}">{{ s.title }}</a>{% else %}{{ s.title }}{% endif %}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  <nav class="container lesson-pager" aria-label="Lessons">
+    {% if idx > 0 %}{% assign p = lessons[prev_i] %}
+    <a class="pager-prev" href="{{ p.url | relative_url }}"><span>← Previous lesson</span><strong>{{ p.title }}</strong></a>
+    {% else %}<a class="pager-prev" href="{{ '/' | relative_url }}"><span>← Back to</span><strong>Start here</strong></a>{% endif %}
+    {% if next_i < total %}{% assign n = lessons[next_i] %}
+    <a class="pager-next" href="{{ n.url | relative_url }}"><span>Next lesson →</span><strong>{{ n.title }}</strong></a>
+    {% else %}<a class="pager-next" href="{{ '/quiz/' | relative_url }}"><span>You made it →</span><strong>Test your knowledge</strong></a>{% endif %}
+  </nav>
+</article>

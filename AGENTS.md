@@ -16,7 +16,7 @@ This repository is the source for **learn.levees.org**, an evergreen, lesson-bas
 | `_data/glossary.yml` | Glossary terms rendered on `/glossary/` (sorted automatically). |
 | `_data/studies.yml` | Major investigations rendered on `/library/`. |
 | `_data/quiz.yml` | Quiz questions rendered on `/quiz/`. `answer` is a zero-based index. |
-| `_data/navigation.yml` | Top navigation. `secondary: true` items collapse into the "More…" drawer on small screens. |
+| `_data/navigation.yml` | `main`: the levees.org menu (unchanged from the main site) plus the **Learn** tab; `show` sets the smallest screen an item appears on, and hidden items move into the "More…" drawer. `learn`: this site's section links, shown in the bar below. |
 | `_layouts/default.html` | Page shell: head, header, nav, footer. |
 | `_layouts/lesson.html` | Lesson template: hero, "The short version," body, "Go deeper," sources, prev/next. |
 | `_includes/figure.html` | Captioned, credited image. Use it for every photo. |
@@ -63,6 +63,7 @@ Before committing, make sure:
 
 ## Design rules
 
+- This site lives alongside levees.org, not in place of it: keep the header and main menu identical to levees.org (plus the Learn tab), and keep the home page hero visibly different from the levees.org home page hero.
 - Visual language comes from the levees.org "levees2023" theme: PT Serif Caption headings with a Playfair Display *italic* accent phrase, PT Sans Caption UI text, a light-green gradient nav bar, green pills and rounded cards. Long-form lesson text is set in PT Serif for readability.
 - Keep pages fast: no frameworks, no build step beyond Jekyll, one small JS file. Inline scripts only where a page needs interactivity (the quiz).
 - Every image needs meaningful `alt` text and a credit.

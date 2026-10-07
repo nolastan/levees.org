@@ -1,33 +1,66 @@
-# Top navigation. `match` is the URL prefix that marks the item active.
-- title: Start here
-  url: /
-  match: "/"
-- title: Lessons
-  url: /lessons/
-  match: /lessons/
-- title: Myth busters
-  url: /myths/
-  match: /myths/
-- title: Timeline
-  url: /timeline/
-  match: /timeline/
-- title: The record
-  url: /library/
-  match: /library/
-  secondary: true
-- title: Glossary
-  url: /glossary/
-  match: /glossary/
-  secondary: true
-- title: Quiz
-  url: /quiz/
-  match: /quiz/
-  secondary: true
-- title: Visit
-  url: /visit/
-  match: /visit/
-  secondary: true
-- title: About
-  url: /about/
-  match: /about/
-  secondary: true
+# Top navigation, mirroring the levees.org main menu, plus a Learn tab for this site.
+# `url` values starting with "/" are pages on this site; full URLs point to levees.org.
+# `show` controls the smallest screen on which the item appears in the bar:
+#   all = always, md = 768px and up, lg = 1024px and up. Hidden items appear in the "More…" drawer.
+main:
+  - title: News
+    url: https://levees.org/blog/
+    show: all
+  - title: About
+    url: https://levees.org/press-and-media-resources/
+    show: all
+  - title: Projects
+    url: https://levees.org/mission-and-goals-of-levees-org/
+    show: all
+  - title: National press
+    url: https://levees.org/recent-media-hits/
+    show: lg
+  - title: Boards
+    url: https://levees.org/board-of-directors-and-advisors/
+    show: lg
+  - title: Partners
+    url: https://levees.org/other/allied-organizations/
+    show: lg
+  - title: Education
+    url: https://levees.org/educational-resources/
+    show: md
+  - title: Learn
+    url: /
+    show: all
+    learn: true
+  - title: Contact
+    url: https://levees.org/contact/
+    show: md
+  - title: Donate
+    url: https://levees.org/donate/
+    show: lg
+
+# Section navigation shown on every page of this site, below the main bar.
+learn:
+  - title: Start here
+    url: /
+    match: "/"
+  - title: Lessons
+    url: /lessons/
+    match: /lessons/
+  - title: Myth busters
+    url: /myths/
+    match: /myths/
+  - title: Timeline
+    url: /timeline/
+    match: /timeline/
+  - title: The record
+    url: /library/
+    match: /library/
+  - title: Glossary
+    url: /glossary/
+    match: /glossary/
+  - title: Quiz
+    url: /quiz/
+    match: /quiz/
+  - title: Visit
+    url: /visit/
+    match: /visit/
+  - title: About
+    url: /about/
+    match: /about/

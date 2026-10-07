@@ -5,24 +5,39 @@ summary: "The full and vetted story of why the levees broke in New Orleans durin
 ---
 {%- assign lessons = site.lessons | sort: "order" -%}
 {%- assign first = lessons | first -%}
-<section class="hero container">
-  <a class="banner-link" href="{{ '/lessons/words-matter/' | relative_url }}">Why we never say “Katrina flooded New Orleans” →</a>
-  <div class="hero-grid">
-    <figure class="hero-photo">
-      <img src="{{ '/assets/images/plaque-reveal-vertical.jpg' | relative_url }}" alt="Residents unveil the historic plaque at the Industrial Canal breach site in the Lower Ninth Ward">
-      <figcaption>Unveiling the historic plaque at the Industrial Canal breach, Lower Ninth Ward, 2015.</figcaption>
-    </figure>
-    <div>
-      <h1 class="display display-xl">Why the <em>levees broke</em></h1>
-      <p class="lede">The full and vetted story of the worst civil engineering disaster in U.S. history — in fifteen short lessons.</p>
+{%- assign total_minutes = 0 -%}
+{%- for l in lessons %}{% assign total_minutes = total_minutes | plus: l.reading_time %}{% endfor -%}
+<section class="learn-hero">
+  <img class="learn-hero-bg" src="{{ '/assets/images/authorized-plan.jpg' | relative_url }}" alt="">
+  <div class="container learn-hero-grid">
+    <div class="learn-hero-text">
+      <span class="pill pill-light">Levees.org Learn · A free course</span>
+      <h1 class="display">Everyone deserves <em>to know</em></h1>
+      <p class="lede">The full and vetted story of why the levees broke in New Orleans during Hurricane Katrina — in {{ lessons | size }} short lessons, with the sources behind every fact.</p>
       <div class="btn-row">
-        <a class="btn" href="{{ first.url | relative_url }}"><span>Start the first lesson</span>
-          <svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M6.83 5.29 2.59 1.05a1 1 0 0 0-1.42 1.41L4.71 6 1.17 9.54a1 1 0 0 0 1.42 1.41l4.24-4.24a1 1 0 0 0 0-1.42Z" fill="#FFF2EE"/></svg>
+        <a class="btn btn-light" href="{{ first.url | relative_url }}"><span>Start the first lesson</span>
+          <svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M6.83 5.29 2.59 1.05a1 1 0 0 0-1.42 1.41L4.71 6 1.17 9.54a1 1 0 0 0 1.42 1.41l4.24-4.24a1 1 0 0 0 0-1.42Z" fill="currentColor"/></svg>
         </a>
-        <a class="btn-outline" href="{{ '/lessons/' | relative_url }}">See all lessons</a>
+        <a class="learn-hero-link" href="{{ '/myths/' | relative_url }}">Or jump to the myth busters →</a>
       </div>
     </div>
+    <aside class="outline" aria-label="Course outline">
+      <p class="outline-meta">{{ lessons | size }} lessons · about {{ total_minutes | divided_by: 10 | times: 10 }} minutes</p>
+      <ol>
+        {%- for part in site.data.parts %}
+        {%- assign part_lessons = lessons | where: "part", part.id %}
+        <li>
+          <a href="{{ '/lessons/' | relative_url }}#{{ part.id }}">
+            <span class="outline-num">{{ forloop.index }}</span>
+            <span class="outline-title">{{ part.heading }}</span>
+            <span class="outline-count">{{ part_lessons | size }} lessons</span>
+          </a>
+        </li>
+        {%- endfor %}
+      </ol>
+    </aside>
   </div>
+  <p class="container learn-hero-credit">Background: the Army Corps' Authorized Plan of Protection for the Lake Pontchartrain and Vicinity Hurricane Protection Project, 1965.</p>
 </section>
 
 <section class="section section-alt">
@@ -82,22 +97,22 @@ summary: "The full and vetted story of why the levees broke in New Orleans durin
     </div>
     <div class="feature-grid">
       <a class="feature" href="{{ '/myths/' | relative_url }}">
-        <img src="{{ '/assets/images/man-on-roof.jpg' | relative_url }}" alt="">
+        <img class="feature-bg" src="{{ '/assets/images/man-on-roof.jpg' | relative_url }}" alt="">
         <div class="feature-body"><span class="feature-kicker">Myth vs. truth</span><h3>Myth busters</h3><p>{{ site.data.myths | size }} common myths about the 2005 flooding, and the facts that bust them.</p></div>
         <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
       </a>
       <a class="feature" href="{{ '/timeline/' | relative_url }}">
-        <img src="{{ '/assets/images/authorized-plan.jpg' | relative_url }}" alt="">
+        <img class="feature-bg" src="{{ '/assets/images/wdsu-1991.jpg' | relative_url }}" alt="">
         <div class="feature-body"><span class="feature-kicker">1897 – today</span><h3>Timeline</h3><p>The levee failures were 40 years in the making. See them in order.</p></div>
         <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
       </a>
       <a class="feature" href="{{ '/library/' | relative_url }}">
-        <img src="{{ '/assets/images/water-policy-overlay.jpg' | relative_url }}" alt="">
+        <img class="feature-bg" src="{{ '/assets/images/water-policy-overlay.jpg' | relative_url }}" alt="">
         <div class="feature-body"><span class="feature-kicker">Primary sources</span><h3>The record</h3><p>Every major levee investigation, the court rulings, and the books to read next.</p></div>
         <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
       </a>
       <a class="feature" href="{{ '/quiz/' | relative_url }}">
-        <img src="{{ '/assets/images/bellaire-before-after.jpg' | relative_url }}" alt="">
+        <img class="feature-bg" src="{{ '/assets/images/bellaire-before-after.jpg' | relative_url }}" alt="">
         <div class="feature-body"><span class="feature-kicker">Ten questions</span><h3>Test your knowledge</h3><p>Separate facts from fairy tales.</p></div>
         <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
       </a>

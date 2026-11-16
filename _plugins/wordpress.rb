@@ -122,7 +122,7 @@ module LeveesOrg
     def wp_more(html)
       parts = html.to_s.split(/<!--more(?:.*?)?-->/, 2)
       return html if parts.size == 1
-      parts.first.sub(/\s*<p>\s*\z/, "\n")
+      parts.first.to_s.sub(/\s*<p>\s*\z/, "\n")
     end
 
     # Root-relative links and images -> absolute, for the RSS feed.
@@ -159,20 +159,33 @@ Jekyll::Hooks.register :posts, :pre_render do |doc|
   d["theme_title"] ||= "#{d['seo_title']}#{LeveesOrg::SITE_NAME}"
 end
 
-Jekyll::Hooks.register :pages, :pre_render do |page|
-  d = page.data
-  next unless d["layout"] == "page"
-  t = LeveesOrg.plain_title(d["title"])
-  tpl = d["wp_template"].to_s.sub(/\.php\z/, "")
-  cls = ["wp-singular"]
-  cls += tpl.empty? ? ["page-template-default"] : ["page-template", "page-template-#{tpl}", "page-template-#{tpl}-php"]
-  cls += ["page", "page-id-#{d['wp_id']}"]
-  cls << "page-parent" if d["wp_has_children"]
-  cls += ["page-child", "parent-pageid-#{d['wp_parent']}"] if d["wp_parent"]
-  cls << "wp-theme-levees2023"
-  d["body_class"] ||= cls.join(" ")
-  d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}"
-  d["theme_title"] ||= "#{d['seo_title']}#{LeveesOrg::SITE_NAME}"
+# (Done before rendering starts: page data is copied for Liquid before a
+# per-page pre_render hook would run.)
+Jekyll::Hooks.register :site, :pre_render do |site|
+  by_id = site.pages.each_with_object({}) { |pg, h| h[pg.data["wp_id"]] = pg if pg.data["wp_id"] }
+  site.pages.each do |page|
+    next unless page.relative_path.start_with?("pages/")
+    d = page.data
+    # Ancestor page ids, for menu highlighting ("current-page-ancestor").
+    anc = []
+    pid = d["wp_parent"]
+    while pid && by_id[pid] && !anc.include?(pid)
+      anc << pid
+      pid = by_id[pid].data["wp_parent"]
+    end
+    d["wp_ancestors"] = anc
+    t = LeveesOrg.plain_title(d["title"])
+    tpl = d["wp_template"].to_s.sub(/\.php\z/, "")
+    cls = ["wp-singular"]
+    cls += tpl.empty? ? ["page-template-default"] : ["page-template", "page-template-#{tpl}", "page-template-#{tpl}-php"]
+    cls += ["page", "page-id-#{d['wp_id']}"]
+    cls << "page-parent" if d["wp_has_children"]
+    cls += ["page-child", "parent-pageid-#{d['wp_parent']}"] if d["wp_parent"]
+    cls << "wp-theme-levees2023"
+    d["body_class"] ||= cls.join(" ")
+    d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}"
+    d["theme_title"] ||= "#{d['seo_title']}#{LeveesOrg::SITE_NAME}"
+  end
 end
 
 Jekyll::Hooks.register :documents, :pre_render do |doc|

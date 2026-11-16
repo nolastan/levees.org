@@ -81,7 +81,8 @@ def ts(local, gmt):
     America/Chicago, so Jekyll reads it as local time. (Some old posts have
     GMT offsets that disagree with daylight saving; using the wall clock keeps
     the dates exactly as WordPress showed them.)"""
-    return local.replace('T', ' ')
+    # Quoted: YAML would read an unquoted timestamp without an offset as UTC.
+    return '"' + local.replace('T', ' ') + '"'
 
 def aioseo_description(item):
     j = item.get('aioseo_head_json') or {}

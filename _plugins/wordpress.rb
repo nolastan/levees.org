@@ -50,7 +50,7 @@ module LeveesOrg
       end
       posts.group_by { |p| p.date.strftime("%Y/%m/%d") }.each do |ymd, list|
         d = list.first.date
-        paginate(site, "/#{ymd}/", list, date_base.merge("archive_name" => "#{d.strftime('%B')} #{d.day}, #{d.year}"))
+        paginate(site, "/#{ymd}/", list, date_base.merge("archive_name" => "#{d.strftime('%A, %B')} #{d.day}, #{d.year}"))
       end
     end
 
@@ -65,8 +65,8 @@ module LeveesOrg
         page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
         body = info["body_base"].dup
         if n > 1
-          # WordPress puts "paged" second for archives, after "blog" for the blog.
-          body.insert(1, "paged")
+          # WordPress's order: "blog paged", "archive paged category", but "archive date paged".
+          body.insert(info["archive_type"] == "date" ? 2 : 1, "paged")
           body << "paged-#{n}"
           body << "#{info['paged_class']}-#{n}" if info["paged_class"]
         end

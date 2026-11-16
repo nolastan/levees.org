@@ -50,7 +50,7 @@ module LeveesOrg
       end
       posts.group_by { |p| p.date.strftime("%Y/%m/%d") }.each do |ymd, list|
         d = list.first.date
-        paginate(site, "/#{ymd}/", list, date_base.merge("archive_name" => "#{d.strftime('%B')} #{d.day}, #{d.year}"))
+        paginate(site, "/#{ymd}/", list, date_base.merge("archive_name" => "#{d.strftime('%A, %B')} #{d.day}, #{d.year}"))
       end
     end
 
@@ -65,8 +65,8 @@ module LeveesOrg
         page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
         body = info["body_base"].dup
         if n > 1
-          # WordPress puts "paged" second for archives, after "blog" for the blog.
-          body.insert(1, "paged")
+          # WordPress's order: "blog paged", "archive paged category", but "archive date paged".
+          body.insert(info["archive_type"] == "date" ? 2 : 1, "paged")
           body << "paged-#{n}"
           body << "#{info['paged_class']}-#{n}" if info["paged_class"]
         end
@@ -120,9 +120,14 @@ module LeveesOrg
 
     # Text before <!--more--> (lists show only that part, as the theme did).
     def wp_more(html)
-      parts = html.to_s.split(/<!--more(?:.*?)?-->/, 2)
+      parts = html.to_s.split(/<!--more.*?-->/, 2)
       return html if parts.size == 1
       parts.first.to_s.sub(/\s*<p>\s*\z/, "\n")
+    end
+
+    # On the post's own page WordPress turns <!--more--> into an anchor.
+    def wp_more_anchor(html, id)
+      html.to_s.sub(/<!--more.*?-->/, %(<span id="more-#{id}"></span>))
     end
 
     # Root-relative links and images -> absolute, for the RSS feed.
@@ -155,7 +160,7 @@ Jekyll::Hooks.register :posts, :pre_render do |doc|
   d = doc.data
   t = LeveesOrg.plain_title(d["title"])
   d["body_class"] ||= "wp-singular post-template-default single single-post postid-#{d['wp_id']} single-format-standard wp-theme-levees2023"
-  d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}"
+  d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}".strip
   d["theme_title"] ||= "#{d['seo_title']}#{LeveesOrg::SITE_NAME}"
 end
 
@@ -183,7 +188,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     cls += ["page-child", "parent-pageid-#{d['wp_parent']}"] if d["wp_parent"]
     cls << "wp-theme-levees2023"
     d["body_class"] ||= cls.join(" ")
-    d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}"
+    d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}".strip
     d["theme_title"] ||= "#{d['seo_title']}#{LeveesOrg::SITE_NAME}"
   end
 end
@@ -193,6 +198,6 @@ Jekyll::Hooks.register :documents, :pre_render do |doc|
   d = doc.data
   t = LeveesOrg.plain_title(d["title"])
   d["body_class"] ||= "wp-singular levees_facts-template-default single single-levees_facts postid-#{d['wp_id']} wp-theme-levees2023"
-  d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}"
+  d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}".strip
   d["theme_title"] ||= "#{d['seo_title']}#{LeveesOrg::SITE_NAME}"
 end

@@ -44,7 +44,10 @@ def frontend_html(content):
     suffix (the API renders captions twice, for the excerpt and the body).
     Undo both so the pages match what visitors saw."""
     content = re.sub(r'<p>(<div id="attachment_[^"]*"[^>]*>(?:(?!</div>).)*</div>)</p>', r'\1', content, flags=re.S)
-    content = re.sub(r'<p>(<div id="attachment_[^"]*"[^>]*>(?:(?!</div>).)*</div>)', r'\1<p>', content, flags=re.S)
+    # Shortcode output that the API wraps differently from the theme:
+    # [html_sitemap] (a bare <ul>) and the [iframe]-in-<code> on one page.
+    content = re.sub(r'^<p>(<ul>.*</ul>)\s*</p>', r'\1', content, flags=re.S)
+    content = content.replace('<p><code></p>\n<div', '<p><code><div').replace('</div>\n<p></code></p>', '</div></code></p>')
     # Drop a "-N" suffix only when the plain id isn't used yet in this post
     # (a genuinely repeated image keeps its "-2", as on the live site).
     seen = set()
@@ -74,12 +77,12 @@ def path_of(link):
     return urllib.parse.unquote(link.replace('https://levees.org', '').replace('http://levees.org', '')) or '/'
 
 def ts(local, gmt):
-    """WordPress local time + offset derived from the GMT field."""
-    l = datetime.fromisoformat(local); g = datetime.fromisoformat(gmt)
-    off = int((l - g).total_seconds() // 60)
-    sign = '-' if off < 0 else '+'
-    off = abs(off)
-    return f"{local.replace('T', ' ')} {sign}{off // 60:02d}{off % 60:02d}"
+    """WordPress's local wall-clock time. _config.yml sets timezone:
+    America/Chicago, so Jekyll reads it as local time. (Some old posts have
+    GMT offsets that disagree with daylight saving; using the wall clock keeps
+    the dates exactly as WordPress showed them.)"""
+    # Quoted: YAML would read an unquoted timestamp without an offset as UTC.
+    return '"' + local.replace('T', ' ') + '"'
 
 def aioseo_description(item):
     j = item.get('aioseo_head_json') or {}
@@ -105,6 +108,7 @@ for p in posts:
         f"author: {yq(user_names.get(p['author'], ''))}",
         f"permalink: {yq(perm)}",
         f"wp_id: {p['id']}",
+    ] + (['wp_thumbnail: true'] if p.get('featured_media') else []) + [
         'categories: [' + ', '.join(yq(cat_slug[c]) for c in p['categories']) + ']',
         'tags: [' + ', '.join(yq(tag_slug[t]) for t in p['tags'] if t in tag_slug) + ']',
     ]

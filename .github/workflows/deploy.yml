@@ -1,10 +1,12 @@
 # Builds the site with Jekyll, adds the search index, and publishes it to
 # GitHub Pages. Runs on every push to main (and can be started by hand).
+# Pull requests get the build only, so a broken change shows up before merging.
 name: Build and deploy
 
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -29,15 +31,18 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
       - uses: actions/configure-pages@v5
+        if: github.event_name != 'pull_request'
       - name: Build with Jekyll
         run: bundle exec jekyll build
       - name: Build the search index
         run: npx --yes pagefind@1.3.0 --site _site
       - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
         with:
           path: _site
 
   deploy:
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     environment:

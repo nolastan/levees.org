@@ -402,7 +402,7 @@ layout: null
                 <div class="w-full lg:w-9/12 px-4 mb-10 lg:mb-0">
                   <div class="max-w-2xl">
                     <span class="block text-gray-400 mb-1">{{ post.date | wp_short_date }}</span>
-                    <p class="text-2xl font-semibold text-gray-900">{{ post.title | strip_html }}</p>
+                    <p class="text-2xl font-semibold text-gray-900">{{ post.title | strip_html | replace: "&#8217;", "'" | replace: "&#8216;", "'" | replace: "&#8220;", '"' | replace: "&#8221;", '"' }}</p>
                   </div>
                 </div>
                 <div class="w-full lg:w-auto px-4 ml-auto text-right">

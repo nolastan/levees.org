@@ -1,0 +1,4 @@
+{%- assign months = site.posts | group_by_exp: "p", "p.date | date: '%Y/%m'" -%}
+{%- for m in months -%}
+{%- assign d = m.items.first.date %}	<option value='/{{ m.name }}/'> {{ d | date: "%B %Y" }} </option>
+{% endfor -%}

@@ -1,0 +1,86 @@
+---
+layout: classic
+title: Search
+body_class: search search-results wp-theme-levees2023
+theme_title: "Search | Levees.OrgLevees.Org"
+seo_title: "Search | Levees.Org"
+robots: "noindex, follow"
+sitemap: false
+---
+{%- comment -%}
+Site search. WordPress searched its database; this page searches an index
+built by Pagefind after Jekyll runs (see .github/workflows/deploy.yml), and
+shows results the way the theme showed them: three per page.
+{%- endcomment -%}
+<div id="content" role="main">
+<div id="search-results"></div>
+			</div><!-- #content -->
+<script type="module">
+const params = new URLSearchParams(location.search);
+const term = (params.get('s') || '').trim();
+const pageNum = Math.max(1, parseInt(params.get('paged') || '1', 10));
+const PER_PAGE = 3;
+const box = document.getElementById('search-results');
+const esc = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const searchInput = document.getElementById('s');
+if (searchInput) searchInput.value = term;
+
+function notFound() {
+  document.body.className = 'search search-no-results wp-theme-levees2023';
+  box.innerHTML = `
+	<div id="post-0" class="post error404 not-found">
+		<h1 class="entry-title">Not Found</h1>
+		<div class="entry-content">
+			<p>Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.</p>
+			<form role="search" method="get" class="searchform" action="/search/">
+				<div>
+					<label class="screen-reader-text" for="s2">Search for:</label>
+					<input type="text" value="${esc(term)}" name="s" id="s2" />
+					<input type="submit" value="Search" />
+				</div>
+			</form>		</div><!-- .entry-content -->
+	</div><!-- #post-0 -->`;
+}
+
+async function run() {
+  if (term) document.title = `${term} | Levees.Org`;
+  if (!term) return notFound();
+  const pagefind = await import('/pagefind/pagefind.js');
+  const search = await pagefind.search(term);
+  if (!search || search.results.length === 0) return notFound();
+  const total = Math.ceil(search.results.length / PER_PAGE);
+  const slice = search.results.slice((pageNum - 1) * PER_PAGE, pageNum * PER_PAGE);
+  const data = await Promise.all(slice.map((r) => r.data()));
+  let html = '';
+  for (const d of data) {
+    const title = d.meta.title || '';
+    const plain = esc(title.replace(/<[^>]+>/g, ''));
+    const url = d.url.replace(/index\.html$/, '');
+    html += `
+			<div class="post type-post status-publish format-standard hentry">
+			<h2 class="entry-title"><a href="${url}" title="Permalink to ${plain}" rel="bookmark">${esc(title)}</a></h2>
+${d.meta.date ? `
+			<div class="entry-meta">
+				${esc(d.meta.date.trim())}			</div><!-- .entry-meta -->` : ''}
+				<div class="entry-summary">
+				<p>${d.excerpt} [&hellip;]</p>
+			</div><!-- .entry-summary -->
+
+		<div class="post-after">
+			<span class="more-link"><a href="${url}" title="Permalink to ${plain}" rel="bookmark">Read More <span class="meta-nav">&raquo;</span></a></span>
+		</div>
+		</div><!-- #post-## -->
+`;
+  }
+  if (total > 1) {
+    const link = (n) => `/search/?s=${encodeURIComponent(term)}${n > 1 ? `&paged=${n}` : ''}`;
+    html += `
+				<div id="nav-below" class="navigation">
+					<div class="nav-previous">${pageNum < total ? `<a href="${link(pageNum + 1)}" ><span class="meta-nav">&larr;</span> Older posts</a>` : ''}</div>
+					<div class="nav-next">${pageNum > 1 ? `<a href="${link(pageNum - 1)}" >Newer posts <span class="meta-nav">&rarr;</span></a>` : ''}</div>
+				</div><!-- #nav-below -->`;
+  }
+  box.innerHTML = html;
+}
+run().catch(() => notFound());
+</script>

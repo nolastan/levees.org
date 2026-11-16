@@ -1,0 +1,152 @@
+---
+title: "Start here"
+body_class: home
+summary: "The full and vetted story of why the levees broke in New Orleans during Hurricane Katrina, in fifteen short lessons from Levees.org."
+---
+{%- assign lessons = site.lessons | sort: "order" -%}
+{%- assign first = lessons | first -%}
+{%- assign total_minutes = 0 -%}
+{%- for l in lessons %}{% assign total_minutes = total_minutes | plus: l.reading_time %}{% endfor -%}
+<section class="learn-hero">
+  <img class="learn-hero-bg" src="../images/authorized-plan.jpg" alt="">
+  <div class="container learn-hero-grid">
+    <div class="learn-hero-text">
+      <span class="pill pill-light">Levees.org Learn · A free course</span>
+      <h1 class="display">Everyone deserves <em>to know</em></h1>
+      <p class="lede">The full and vetted story of why the levees broke in New Orleans during Hurricane Katrina — in {{ lessons | size }} short lessons, with the sources behind every fact.</p>
+      <div class="btn-row">
+        <a class="btn btn-light" href="{{ first.url | relative_url }}"><span>Start the first lesson</span>
+          <svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M6.83 5.29 2.59 1.05a1 1 0 0 0-1.42 1.41L4.71 6 1.17 9.54a1 1 0 0 0 1.42 1.41l4.24-4.24a1 1 0 0 0 0-1.42Z" fill="currentColor"/></svg>
+        </a>
+        <a class="learn-hero-link" href="https://learn.levees.org/myths/">Or jump to the myth busters →</a>
+      </div>
+    </div>
+    <aside class="outline" aria-label="Course outline">
+      <p class="outline-meta">{{ lessons | size }} lessons · about {{ total_minutes | divided_by: 10 | times: 10 }} minutes</p>
+      <ol>
+        {%- for part in site.data.parts %}
+        {%- assign part_lessons = lessons | where: "part", part.id %}
+        <li>
+          <a href="https://learn.levees.org/lessons/#{{ part.id }}">
+            <span class="outline-num">{{ forloop.index }}</span>
+            <span class="outline-title">{{ part.heading }}</span>
+            <span class="outline-count">{{ part_lessons | size }} lessons</span>
+          </a>
+        </li>
+        {%- endfor %}
+      </ol>
+    </aside>
+  </div>
+  <p class="container learn-hero-credit">Background: the Army Corps' Authorized Plan of Protection for the Lake Pontchartrain and Vicinity Hurricane Protection Project, 1965.</p>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <span class="pill">The short answer</span>
+    <p class="answer" style="margin-top:1.25rem">On August 29, 2005, levees and floodwalls built by the <strong>U.S. Army Corps of Engineers</strong> broke in about 50 places, flooding 80% of New Orleans. Many of the walls fell over with the water <strong>well below their tops</strong>. In the 1980s, the Corps had misread its own load test and driven steel sheet piles <strong>17 feet deep instead of 31 to 46</strong> — saving about $100 million. A federal judge found the Corps responsible. A 1928 law means it never had to pay.</p>
+    <div class="stats">
+      <div class="stat"><span class="stat-number">1,392</span><p>deaths from Hurricane Katrina, per the National Hurricane Center. Levee failures led to the deaths of hundreds.</p></div>
+      <div class="stat"><span class="stat-number">~50</span><p>breaches in the federal hurricane protection system</p></div>
+      <div class="stat"><span class="stat-number">$100M</span><p>saved by the Corps' decision to short-sheet the steel pilings</p></div>
+      <div class="stat"><span class="stat-number">62%</span><p>of Americans live in counties protected by levees</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="pill">The course</span>
+        <h2 class="section-title" style="margin-top:.75rem">Four parts, <em>fifteen lessons</em></h2>
+      </div>
+      <p>Each lesson takes five to ten minutes, draws on two decades of Levees.org research, and links to the primary sources.</p>
+    </div>
+    {% for part in site.data.parts %}
+    <div class="part-block" id="{{ part.id }}">
+      <h3 style="font-size:1.5rem">{{ part.heading }}</h3>
+      <p>{{ part.blurb }}</p>
+      <div class="lesson-grid">
+        {% for l in lessons %}{% if l.part == part.id %}
+        {% include lesson-card.html lesson=l %}
+        {% endif %}{% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section-dark quote-band">
+  <img class="star" src="../images/star-dark-bg.svg" alt="">
+  <div class="container" style="position:relative">
+    <span class="pill pill-light">No one blames the iceberg</span>
+    <blockquote style="margin-top:1.5rem">“In 1912, the Titanic sank and no one blames the iceberg. Levees.org will say ‘mission accomplished’ when, with regard to the catastrophic flooding during Katrina, no one blames the hurricane.”
+      <cite>— Levees.org</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="pill">Keep exploring</span>
+        <h2 class="section-title" style="margin-top:.75rem">Tools for <em>the truth</em></h2>
+      </div>
+      <p>Quick references for students, reporters and anyone who wants the facts at their fingertips.</p>
+    </div>
+    <div class="feature-grid">
+      <a class="feature" href="https://learn.levees.org/myths/">
+        <img class="feature-bg" src="../images/man-on-roof.jpg" alt="">
+        <div class="feature-body"><span class="feature-kicker">Myth vs. truth</span><h3>Myth busters</h3><p>{{ site.data.myths | size }} common myths about the 2005 flooding, and the facts that bust them.</p></div>
+        <img class="arrow" src="../images/arrow.svg" alt="">
+      </a>
+      <a class="feature" href="https://learn.levees.org/timeline/">
+        <img class="feature-bg" src="../images/wdsu-1991.jpg" alt="">
+        <div class="feature-body"><span class="feature-kicker">1897 – today</span><h3>Timeline</h3><p>The levee failures were 40 years in the making. See them in order.</p></div>
+        <img class="arrow" src="../images/arrow.svg" alt="">
+      </a>
+      <a class="feature" href="https://learn.levees.org/library/">
+        <img class="feature-bg" src="../images/water-policy-overlay.jpg" alt="">
+        <div class="feature-body"><span class="feature-kicker">Primary sources</span><h3>The record</h3><p>Every major levee investigation, the court rulings, and the books to read next.</p></div>
+        <img class="arrow" src="../images/arrow.svg" alt="">
+      </a>
+      <a class="feature" href="https://learn.levees.org/quiz/">
+        <img class="feature-bg" src="../images/bellaire-before-after.jpg" alt="">
+        <div class="feature-body"><span class="feature-kicker">Ten questions</span><h3>Test your knowledge</h3><p>Separate facts from fairy tales.</p></div>
+        <img class="arrow" src="../images/arrow.svg" alt="">
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2 class="section-title">Additional <em>resources</em></h2>
+      </div>
+      <p>Learn more about the 2005 New Orleans levee failures and gain the tools to advocate for your community.</p>
+    </div>
+    <div class="resource-grid">
+      <div class="resource">
+        <img src="../images/book-cover-2025.jpg" alt="Cover of Words Whispered in Water, Anniversary Edition" style="object-fit:contain;background:#fff">
+        <h3>Words Whispered in Water</h3>
+        <p>Founder Sandy Rosenthal's award-winning account of why the levees broke and how the truth was buried.</p>
+        <a class="btn-outline" href="https://www.wordswhisperedinwater.com?ref=learnleveesorg">Get the book ↗</a>
+      </div>
+      <div class="resource">
+        <img src="../images/exhibit-hall.jpg" alt="Founder Sandy Rosenthal at the Levee Exhibit Hall">
+        <h3>Visit the breach sites</h3>
+        <p>The Flooded House Museum and Levee Exhibit Hall are free and open every day at the London Avenue Canal breach.</p>
+        <a class="btn-outline" href="https://learn.levees.org/visit/">Plan your visit →</a>
+      </div>
+      <div class="resource">
+        <img src="../images/sandy-podium.jpg" alt="Sandy Rosenthal speaking at a podium">
+        <h3>Join Levees.org</h3>
+        <p>Advocate for safe levees in your community and nationwide. It's free: 1–2 emails monthly, directly from Sandy.</p>
+        <a class="btn-outline" href="https://levees.org">Sign up at Levees.org ↗</a>
+      </div>
+    </div>
+  </div>
+</section>

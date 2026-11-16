@@ -1,53 +1,61 @@
-# Site settings for learn.levees.org (built by GitHub Pages with Jekyll)
-title: "Learn · Levees.org"
-short_title: "Learn"
-description: >-
-  The full and vetted story of why the levees broke in New Orleans during
-  Hurricane Katrina — and why it matters to the 62% of Americans who live in
-  counties protected by levees.
-url: "https://learn.levees.org"
-baseurl: ""
-lang: en
+# levees.org — static copy of the WordPress site, built with Jekyll by GitHub Actions.
+title: Levees.Org
+description: Your source for information on levee and flood protection nationwide.
+url: "https://levees.org"
+timezone: America/Chicago
+lang: en-US
 
-# Opt out of the default GitHub Pages theme (Primer); this site ships its own layouts and CSS.
-theme: null
+# Post URLs are set per post with `permalink:` (copied from WordPress);
+# this pattern is the same and applies to new posts.
+permalink: /:year/:month/:day/:title/
 
-main_site: "https://levees.org"
+# WordPress shows an excerpt in lists; posts copied from WordPress keep theirs
+# in front matter, new posts get the first 55 words (see _includes/excerpt.html).
+excerpt_separator: ""
 
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
-  auto_ids: true
 
-permalink: pretty
+# Header signup form. It posts straight to Mailchimp.
+# Get the action URL from Mailchimp: Audience > Signup forms > Embedded forms.
+mailchimp:
+  action: "https://levees.us17.list-manage.com/subscribe/post?u=8bc8c6ac9898e50f77b62662f&id=b83f19faad&f_id=001255e0f0"
+  # Mailchimp's anti-bot field: b_<u>_<id> from the action URL.
+  honeypot: "b_8bc8c6ac9898e50f77b62662f_b83f19faad"
 
+# "Levees facts": short fact pages from the old theme's rotating facts box.
 collections:
-  lessons:
+  facts:
     output: true
-    permalink: /lessons/:name/
 
 defaults:
-  - scope:
-      path: ""
+  - scope: { path: "", type: facts }
     values:
-      layout: default
-  - scope:
-      path: ""
-      type: lessons
+      layout: fact
+      render_with_liquid: false
+  - scope: { path: "", type: posts }
     values:
-      layout: lesson
+      layout: post
+      # Text copied from WordPress may contain {{ or {% — never treat it as Liquid.
+      render_with_liquid: false
+  - scope: { path: "pages" }
+    values:
+      layout: page
+      render_with_liquid: false
 
 plugins:
   - jekyll-sitemap
 
 exclude:
+  - reference/
+  - scripts/
   - README.md
   - AGENTS.md
   - CLAUDE.md
-  - docs/
   - Gemfile
   - Gemfile.lock
   - vendor/
+  - node_modules/
   - .github/
-  - scripts/

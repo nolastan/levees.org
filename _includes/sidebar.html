@@ -1,0 +1,63 @@
+<ul id="sidebar">
+
+<li id="mc4wp_form_widget-2" class="widget-container widget_mc4wp_form_widget"><h3 class="widget-title">Join Us</h3><!-- Mailchimp for WordPress v4.15.0 - https://wordpress.org/plugins/mailchimp-for-wp/ --><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-13390" method="post" action="{{ site.mailchimp.action | escape }}" target="_blank" data-id="13390" data-name="Header" ><div class="mc4wp-form-fields"><p style="margin-bottom: 0.5ex">
+  <label>Email: 
+    <input type="email" name="EMAIL" placeholder="Your email address" required />
+  </label>
+<input type="submit" value="Sign up" />
+</p>
+
+<p>
+    <label style="font-size: 80%">
+        <input name="_mc4wp_lists[]" type="hidden" value="b83f19faad" checked="true">
+    	<input name="_mc4wp_lists[]" type="checkbox" value="b74d14e20e"> <span>Tell me about events in New Orleans</span>
+    </label>
+</p>
+
+</div><label style="display: none !important;">Leave this field empty if you&#039;re human: <input type="text" name="{{ site.mailchimp.honeypot }}" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_form_id" value="13390" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" /><div class="mc4wp-response"></div></form><!-- / Mailchimp for WordPress Plugin --></li><li id="nav_menu-4" class="widget-container widget_nav_menu"><h3 class="widget-title">Press</h3><div class="menu-media-hits-container"><ul id="menu-media-hits" class="menu">{% include menu-items.html items=site.data.menus.media-hits %}</ul></div></li><li id="nav_menu-3" class="widget-container widget_nav_menu"><h3 class="widget-title">Quick Links</h3><div class="menu-quick-links-container"><ul id="menu-quick-links" class="menu">{% include menu-items.html items=site.data.menus.quick-links %}</ul></div></li><li id="archives-3" class="widget-container widget_archive"><h3 class="widget-title">Blog Archives</h3>		<label class="screen-reader-text" for="archives-dropdown-3">Blog Archives</label>
+		<select id="archives-dropdown-3" name="archive-dropdown">
+			
+			<option value="">Select Month</option>
+{% include archive-months.html %}
+		</select>
+
+			<script>
+( ( dropdownId ) => {
+	const dropdown = document.getElementById( dropdownId );
+	function onSelectChange() {
+		setTimeout( () => {
+			if ( 'escape' === dropdown.dataset.lastkey ) {
+				return;
+			}
+			if ( dropdown.value ) {
+				document.location.href = dropdown.value;
+			}
+		}, 250 );
+	}
+	function onKeyUp( event ) {
+		if ( 'Escape' === event.key ) {
+			dropdown.dataset.lastkey = 'escape';
+		} else {
+			delete dropdown.dataset.lastkey;
+		}
+	}
+	function onClick() {
+		delete dropdown.dataset.lastkey;
+	}
+	dropdown.addEventListener( 'keyup', onKeyUp );
+	dropdown.addEventListener( 'click', onClick );
+	dropdown.addEventListener( 'change', onSelectChange );
+})( "archives-dropdown-3" );
+
+//# sourceURL=WP_Widget_Archives%3A%3Awidget
+</script>
+</li><li id="search-4" class="widget-container widget_search"><form role="search" method="get" id="searchform" class="searchform" action="/search/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form></li>		</ul>
+
+
+		

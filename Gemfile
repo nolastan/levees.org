@@ -1,5 +1,8 @@
 source "https://rubygems.org"
 
-# Matches the Jekyll version GitHub Pages builds with.
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 4.4"
 gem "webrick"
+
+group :jekyll_plugins do
+  gem "jekyll-sitemap"
+end

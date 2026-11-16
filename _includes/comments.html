@@ -1,0 +1,43 @@
+{%- comment -%}
+Comments are closed; comments left on WordPress are kept in
+_data/comments/<wp_id>.yml and shown here as they were.
+{%- endcomment -%}
+{%- assign key = page.wp_id | append: "" -%}
+{%- assign comments = site.data.comments[key] -%}
+{%- if comments and comments.size > 0 -%}
+{%- assign top = comments | where: "parent", 0 %}
+	<h3 id="comments" data-pagefind-ignore>
+		{% if comments.size == 1 %}One response{% else %}{{ comments.size }} responses{% endif %} to &#8220;{{ page.title }}&#8221;	</h3>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	<ol class="commentlist" data-pagefind-ignore>
+{%- assign n = 0 -%}
+{%- for c in top -%}
+{%- assign parity = n | modulo: 2 -%}{%- assign tparity = forloop.index0 | modulo: 2 %}
+		<li class="comment {% if c.user_class %}{{ c.user_class }} {% endif %}{% if parity == 0 %}even{% else %}odd alt{% endif %} {% if tparity == 0 %}thread-even{% else %}thread-odd thread-alt{% endif %} depth-1" id="comment-{{ c.id }}">
+{%- assign n = n | plus: 1 -%}
+{%- include comment-body.html c=c %}
+{%- assign kids = comments | where: "parent", c.id -%}
+{%- if kids.size > 0 %}
+<ul class="children">
+{%- for k in kids -%}{%- assign parity = n | modulo: 2 %}
+		<li class="comment {% if k.user_class %}{{ k.user_class }} {% endif %}{% if parity == 0 %}even{% else %}odd alt{% endif %} depth-2" id="comment-{{ k.id }}">
+{%- assign n = n | plus: 1 -%}
+{%- include comment-body.html c=k %}
+				</li><!-- #comment-## -->
+{%- endfor %}
+</ul><!-- .children -->
+{%- endif %}
+				</li><!-- #comment-## -->
+{%- endfor %}
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+{%- endif %}

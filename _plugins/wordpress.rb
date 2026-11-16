@@ -155,7 +155,7 @@ Jekyll::Hooks.register :posts, :pre_render do |doc|
   d = doc.data
   t = LeveesOrg.plain_title(d["title"])
   d["body_class"] ||= "wp-singular post-template-default single single-post postid-#{d['wp_id']} single-format-standard wp-theme-levees2023"
-  d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}"
+  d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}".strip
   d["theme_title"] ||= "#{d['seo_title']}#{LeveesOrg::SITE_NAME}"
 end
 
@@ -183,7 +183,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     cls += ["page-child", "parent-pageid-#{d['wp_parent']}"] if d["wp_parent"]
     cls << "wp-theme-levees2023"
     d["body_class"] ||= cls.join(" ")
-    d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}"
+    d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}".strip
     d["theme_title"] ||= "#{d['seo_title']}#{LeveesOrg::SITE_NAME}"
   end
 end
@@ -193,6 +193,6 @@ Jekyll::Hooks.register :documents, :pre_render do |doc|
   d = doc.data
   t = LeveesOrg.plain_title(d["title"])
   d["body_class"] ||= "wp-singular levees_facts-template-default single single-levees_facts postid-#{d['wp_id']} wp-theme-levees2023"
-  d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}"
+  d["seo_title"] ||= "#{t} | #{LeveesOrg::SITE_NAME}".strip
   d["theme_title"] ||= "#{d['seo_title']}#{LeveesOrg::SITE_NAME}"
 end

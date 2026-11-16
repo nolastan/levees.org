@@ -1,0 +1,467 @@
+/*
+Theme Name: Levees 2011
+Theme URI: http://rosenthal.co/
+Description: Designed from scratch, with code lifted from twentyten, for Levees.Org
+Author: Stanford Rosenthal
+Version: 1.0
+Tags: 
+*/
+
+#scribd-docwidget-0{overflow: hidden !important;}
+
+/* ---- CSS RESET ----- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, #tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+	background-image: url('images/handmadepaper.png');
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+/* ---- Clearfix ----- */
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
+
+/* ---- Global----- */
+body{
+	background-color: #eee;
+	text-align: center;
+}
+body, input{
+	font-family: 'PT Sans', arial, serif; 
+}
+h1, h2, h3, h4, h5{
+	font-family: 'PT Sans Caption', arial, serif;
+	font-weight: bold
+}
+em{font-style:italic}
+a{
+	color: #5d6986;
+}
+strong{
+	font-weight: bold;
+}
+
+blockquote{
+	padding:0 1em;
+	border:1px dashed #A8BAE7;
+	background-color: #e8ecf7;
+}
+
+
+#container{
+	width: 900px;
+	-moz-box-shadow: 0px 0px 15px #ddd;
+	-webkit-box-shadow: 0px 0px 15px #ddd;
+	box-shadow: 0px 0px 15px #ddd;	
+	background-color:#fff;
+	margin:1em auto 0 auto;
+	text-align: left;
+	border:solid 1px #bbb;
+}
+
+
+/* ---- Header----- */
+#header{
+	padding:10px;
+}
+
+#join{
+	width: 400px;
+	margin: 15px 0 10px 30px;
+	float:left;
+}
+#join img{
+	float:left;
+}
+#join_teaser h1{
+	margin-bottom: 3px;
+}
+#join_teaser{
+	margin: 15px 5px 0 175px;
+}
+#join form{
+	clear: both;
+	padding-top: 2ex;
+	overflow: hidden;
+}
+#join .form_field {
+	float: left;
+	width: 170px;
+}
+#join .form_field input{
+	text-align: center;
+	font-size: 105%;
+	width: 90%;
+}
+#join input.email{
+	width: 140px
+}
+#join input.zip{
+	width:70px;
+}
+#join input[type=submit]{
+	margin:4ex 0 0 0;
+}
+
+#join_meta{
+	font-family: 'PT Sans Narrow', arial, serif;
+	font-size: 70%;
+	color: #aaa;
+	float:left;
+}
+#join #facebook{
+	float:right;
+	width:220px;
+}
+#join_meta p{
+	margin: .5em 0;
+}
+#video{
+	width: 400px;
+	float:right;
+	text-align: center;
+	font-size: 85%;
+	color:#555;
+	margin-top:3px;
+}
+#video p{
+	margin-top:10px;
+	font-size:90%;
+}
+
+#video_frame{
+	width:340px;
+	margin: 10px auto;
+	-moz-box-shadow: 0px 0px 10px #666;
+	-webkit-box-shadow: 0px 0px 5px #ddd;
+	box-shadow: 0px 0px 10px #999;
+	height:200px;
+}
+
+/* ---- Nav ----- */
+.menu-top-navigation-container{
+	font-family: 'PT Sans Caption', arial, serif;
+	clear:both;
+	background: #b7d86e -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d6eea2), to(#b7d86e));
+	background: #b7d86e -moz-linear-gradient(-90deg,#d6eea2,#b7d86e);
+	font-size:90%;
+	border-top: 1px solid #93b34e;
+	border-bottom: 1px solid #93b34e;
+	-moz-box-shadow: 0px 1px 2px #dadada;
+	-webkit-box-shadow: 0px 1px 2px #dadada;
+	box-shadow: 0px 1px 2px #dadada;
+	height: 2em;
+	font-size: 80%;
+}
+.menu-top-navigation-container li a{
+	color:#333;
+	text-decoration: none;
+	float:left;
+	border-right:1px solid #93b34e;
+	line-height: 2em;
+	padding:0 20px;
+	display: block;
+}
+.menu-top-navigation-container li a:hover{
+	background: #b7d86e -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b7d86e), to(#d6eea2));
+	background: #b7d86e -moz-linear-gradient(-90deg,#b7d86e,#d6eea2);
+}
+.current-menu-item{
+	font-weight:bold;
+}
+
+/* ---- Content ----- */
+#content{
+	width: 550px;
+	padding:20px;
+	line-height: 1.2em;
+}
+#content p{
+	margin: 1em 0;
+}
+
+.wp-caption{
+	margin: 5px;
+}
+.alignright{
+	float:right;
+	margin: 10px;
+}
+.alignleft{
+	float:left;
+	margin: 10px;
+}
+.entry-content, .entry-summary{
+	color: #333;
+	font-size:85%;
+}
+.entry-content{
+	float:left;
+}
+
+.sticky.post{
+	border: 1px solid #f9f9f9;
+	-moz-box-shadow: inset 0px 0px 2px #ccc;
+	-webkit-box-shadow: inset 0px 0px 2px #ccc;
+	box-shadow: inset 0px 0px 2px #ccc;	
+	padding: 10px;
+	margin-bottom: 1em;
+	background: #b7d86e -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fafafa), to(#fff));
+	background: #b7d86e -moz-linear-gradient(-90deg,#fafafa,#fff);
+
+}
+.sticky.post .post-after{
+	border-bottom: none;
+	margin-bottom: 0;
+	padding-bottom: .5em;
+}
+h1.entry-title{
+	font-size: 200%;
+	line-height: 1.2em;
+	letter-spacing: -1px;
+}
+
+h2.entry-title a{
+	text-decoration: none;
+	color: #000;
+}
+h2.entry-title a:hover{
+	text-decoration: underline;
+	color: #5d6986;
+}
+.entry-meta{
+	font-size: 80%;
+	color:#444;
+	font-family: 'PT Sans Narrow', arial, serif;
+}
+.entry-utility{
+	font-size: 60%;
+	width: 100%;
+	line-height:1.5em;
+	margin-top:.2em;
+}
+.post-after{
+	font-size:90%;
+	margin:1em 0;
+	padding-bottom:1em;
+	border-bottom:1px dashed #ccc;
+	height:1em;
+	clear: left;
+}
+.comments-link{
+	float:right;
+}
+.more-link{
+	float:left;
+}
+#content p.wp-caption-text{
+	margin:0;
+	font-size:80%;
+	font-style: oblique;
+}
+#respond{
+	float: left;
+}
+
+/* ---- Sidebar ----- */
+ul#sidebar{
+	float:right;
+	margin:20px;
+	width:270px;
+	font-size:90%;
+}
+ul#sidebar li.widget-container{
+	margin-bottom: 1em;
+}
+ul#sidebar h3{
+	margin-bottom: .3em;
+}
+.widget_nav_menu{
+	margin-left: 5px;
+}
+.widget_nav_menu li{
+	list-style-type: circle;
+	margin: .4em 0;
+	list-style-position: inside;
+	color: #aaa;
+}
+.widget_nav_menu li:hover{
+	color: #555;
+}
+.widget_nav_menu .sub-menu{
+	margin-left:1em;
+}
+
+#content .page ul, #content .post ul{
+	list-style-type: disc;
+	list-style-position: outside;
+	margin-left:1em;
+}
+
+/* ---- Footer ----- */
+#footer{
+	background-color: #5d6986;
+	background: #5d6986 -webkit-gradient(linear, 0% 0%, 0% 100%, from(#606c88), to(#404d6c));
+	background: #5d6986 -moz-linear-gradient(-90deg,#606c88,#404d6c);
+	border-top:1px solid #3a4766;	
+	color: #C2D0EF;
+	font-size: 70%;
+	clear: both;
+}
+#footer a{
+	color:#a8bae7;
+	text-decoration: none;
+}
+#footer a:hover{
+	text-decoration: underline;
+}
+#footer .widget-area{
+	width: 280px;
+	padding: 5px;
+	border-right: 1px solid #404d6c;
+	float:left;
+	overflow: hidden;
+}
+
+#footer ul.xoxo ul li{
+	padding: 10px 0;
+	border-bottom: 1px dashed #404d6c;
+}
+#footer abbr{
+	border-bottom: 1px dashed #3a4766;
+	cursor: help;
+	font-family: 'PT Sans Narrow', arial, serif;
+	color:#1d273e;
+}
+.widget_flickr_feed_gallery img {
+    border: none;
+    margin: 4px 4px 4px 0;
+}
+
+#footer .widget-area#third {
+    border: none;
+}
+
+/* ---- Post-Footer ----- */
+#post-footer p{
+	text-align: center;
+	font-size: 80%;
+	color: #444;
+	margin: 1em 0 2em;
+}
+
+/* ---- Facts Widget ----- */
+.facts{
+	-moz-box-shadow: 0px 0px 5px #aaa;
+	-webkit-box-shadow: 0px 0px 5px #aaa;
+	box-shadow: 0px 0px 5px #aaa;	
+	-moz-border-radius: 15px;
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom:1.5em;
+	height: 7em;
+}
+.facts li{
+	opacity: 0;
+	height: 7.5em;
+}
+.facts .source{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 80%;
+	margin: .5em 0;
+	text-align: right;
+}
+.facts .source a{
+	
+}
+
+/* ---- Press Page ----- */
+
+.page-template-press-php .videos li {
+    display: inline;
+    float: left;
+    font-size: small;
+    list-style-type: none;
+    margin: 0 4px 10px;
+    width: 100px;
+}
+.page-template-press-php .videos li a img {
+    border: 0 none;
+}
+.page-template-press-php .videos h2 {
+    font-size: x-small;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+.page-template-press-php .videos p {
+    margin: 0.1em;
+    padding: 0;
+}
+.tftable td{
+    text-align: center;
+}

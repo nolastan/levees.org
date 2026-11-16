@@ -1,31 +1,30 @@
-# learn.levees.org
+# levees.org
 
-The evergreen, lesson-based companion to [Levees.org](https://levees.org): the full and vetted story of why the levees broke in New Orleans during Hurricane Katrina, organized into fifteen short lessons, with myth busters, a timeline, a glossary, a library of the major investigations, a quiz, and a guide to visiting the breach sites.
+The website of [Levees.Org](https://levees.org), an investigative public education
+nonprofit founded in 2005 by Sandy Rosenthal and her then-15-year-old son Stanford.
 
-Levees.org is an investigative public education nonprofit founded in 2005 by Sandy Rosenthal and her then-15yo son Stanford.
+Until November 2026 the site ran on WordPress. This repository is a static copy of it,
+built with [Jekyll](https://jekyllrb.com) by GitHub Actions and published on GitHub
+Pages. Every URL from the WordPress site works the same way here: posts, pages,
+categories, tags, date archives, the RSS feed and uploaded files.
 
-## How it's built
+See [`AGENTS.md`](AGENTS.md) for how the repository is organized and how to write
+posts, edit pages and preview the site.
 
-A static [Jekyll](https://jekyllrb.com) site, built and hosted by GitHub Pages with no custom build step.
-
-- Lessons live in `_lessons/`, structured data (myths, timeline, glossary, studies, quiz) in `_data/`.
-- Text and photographs come from Levees.org; see [`docs/WRITING_GUIDE.md`](docs/WRITING_GUIDE.md) for the voice and style rules every contributor (human or AI) must follow.
-- See [`AGENTS.md`](AGENTS.md) for a map of the repository and common tasks.
-
-### Preview locally
+## Preview locally
 
 ```sh
 bundle install
-bundle exec jekyll serve
+LANG=C.UTF-8 bundle exec jekyll serve
 # open http://localhost:4000
 ```
 
-## Publishing on GitHub Pages
+## Publishing
 
-1. In the repository's **Settings → Pages**, set **Source** to "Deploy from a branch," choose the default branch and the `/ (root)` folder.
-2. The `CNAME` file already sets the custom domain to `learn.levees.org`. In the DNS for levees.org, add a `CNAME` record for `learn` pointing to `<github-user-or-org>.github.io`.
-3. Once DNS resolves, tick **Enforce HTTPS** in the Pages settings.
+Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site, adds the
+search index and deploys it. In **Settings → Pages**, the source must be
+**GitHub Actions** and the custom domain set to the site's domain.
 
 ## Credits
 
-Text © Levees.org. Photographs are credited on each page to the photographers who shared them with Levees.org. Design adapted from the levees.org theme by Stanford Rosenthal.
+Text © Levees.Org. Theme "levees2023" by Stanford Rosenthal.

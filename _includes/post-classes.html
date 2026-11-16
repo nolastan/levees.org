@@ -1,0 +1,1 @@
+{%- assign p = include.post -%}post-{{ p.wp_id }} post type-post status-publish format-standard hentry{% for c in p.categories %} category-{{ c }}{% endfor %}{% for t in p.tags %} tag-{{ t }}{% endfor %}

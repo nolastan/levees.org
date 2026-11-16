@@ -1,0 +1,9 @@
+{%- comment -%}
+Comment count under a post in lists. Comments are closed, so posts without
+comments show no link (WordPress used to show "Leave a comment").
+{%- endcomment -%}
+{%- assign key = include.post.wp_id | append: "" -%}
+{%- assign cs = site.data.comments[key] -%}
+{%- if cs and cs.size > 0 -%}
+<span class="comments-link"><a href="{{ include.post.url }}#comments">{% if cs.size == 1 %}1 Comment{% else %}{{ cs.size }} Comments{% endif %}</a></span>
+{%- endif -%}

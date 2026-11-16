@@ -1,0 +1,12 @@
+{%- assign c = include.c %}
+				<div id="div-comment-{{ c.id }}" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/{{ c.avatar }}?s=32&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/{{ c.avatar }}?s=64&#038;d=mm&#038;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' loading='lazy' decoding='async'/>			<cite class="fn">{% if c.author_url != "" %}<a href="{{ c.author_url }}" class="url" rel="ugc external nofollow">{{ c.author | escape }}</a>{% else %}{{ c.author | escape }}{% endif %}</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="{{ page.url }}#comment-{{ c.id }}">{{ c.date | wp_comment_date }}</a>		</div>
+
+		{{ c.content }}
+
+		
+				</div>

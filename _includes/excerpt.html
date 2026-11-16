@@ -1,0 +1,8 @@
+{%- comment -%}
+WordPress excerpt: the one saved with the post, or else the first 55 words.
+{%- endcomment -%}
+{%- if include.post.excerpt and include.post.excerpt != "" -%}
+{{ include.post.excerpt }}
+{%- else -%}
+<p>{{ include.post.content | strip_html | normalize_whitespace | truncatewords: 55, " [&hellip;]" }}</p>
+{%- endif -%}

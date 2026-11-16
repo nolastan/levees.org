@@ -1,0 +1,28 @@
+---
+layout: classic
+---
+{%- comment -%} Single post (single.php of the levees2023 theme). {%- endcomment -%}
+			<div id="content" role="main" data-pagefind-body>
+
+			
+
+				<div class="entry-meta" data-pagefind-meta="date" data-pagefind-ignore>
+					{{ page.date | wp_long_date }}				</div><!-- .entry-meta -->
+
+
+				<div id="post-{{ page.wp_id }}" class="{% include post-classes.html post=page %}">
+					<h1 class="entry-title" data-pagefind-meta="title" data-pagefind-ignore>{{ page.title }}</h1>
+
+	
+					<div class="entry-content">
+						{{ content }}
+											</div><!-- .entry-content -->
+
+
+				</div><!-- #post-## -->
+
+
+				
+<!-- You can start editing here. -->
+{% include comments.html %}
+			</div><!-- #content -->

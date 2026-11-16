@@ -1,152 +1,567 @@
 ---
-title: "Start here"
-body_class: home
-summary: "The full and vetted story of why the levees broke in New Orleans during Hurricane Katrina, in fifteen short lessons from Levees.org."
+layout: null
 ---
-{%- assign lessons = site.lessons | sort: "order" -%}
-{%- assign first = lessons | first -%}
-{%- assign total_minutes = 0 -%}
-{%- for l in lessons %}{% assign total_minutes = total_minutes | plus: l.reading_time %}{% endfor -%}
-<section class="learn-hero">
-  <img class="learn-hero-bg" src="{{ '/assets/images/authorized-plan.jpg' | relative_url }}" alt="">
-  <div class="container learn-hero-grid">
-    <div class="learn-hero-text">
-      <span class="pill pill-light">Levees.org Learn · A free course</span>
-      <h1 class="display">Everyone deserves <em>to know</em></h1>
-      <p class="lede">The full and vetted story of why the levees broke in New Orleans during Hurricane Katrina — in {{ lessons | size }} short lessons, with the sources behind every fact.</p>
-      <div class="btn-row">
-        <a class="btn btn-light" href="{{ first.url | relative_url }}"><span>Start the first lesson</span>
-          <svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M6.83 5.29 2.59 1.05a1 1 0 0 0-1.42 1.41L4.71 6 1.17 9.54a1 1 0 0 0 1.42 1.41l4.24-4.24a1 1 0 0 0 0-1.42Z" fill="currentColor"/></svg>
-        </a>
-        <a class="learn-hero-link" href="{{ '/myths/' | relative_url }}">Or jump to the myth busters →</a>
-      </div>
-    </div>
-    <aside class="outline" aria-label="Course outline">
-      <p class="outline-meta">{{ lessons | size }} lessons · about {{ total_minutes | divided_by: 10 | times: 10 }} minutes</p>
-      <ol>
-        {%- for part in site.data.parts %}
-        {%- assign part_lessons = lessons | where: "part", part.id %}
-        <li>
-          <a href="{{ '/lessons/' | relative_url }}#{{ part.id }}">
-            <span class="outline-num">{{ forloop.index }}</span>
-            <span class="outline-title">{{ part.heading }}</span>
-            <span class="outline-count">{{ part_lessons | size }} lessons</span>
+ 
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Levees.Org</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans+Caption+Caption:400i,400,700,700i|PT+Serif+Caption:400i,400&amp;subset=latin">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600;1,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/wp-content/themes/levees2023/tailwind.min.css?ver=1684697533389">
+    <script src="/wp-content/themes/levees2023/js/main.js?v=1684697533389"></script>
+<script>
+// WordPress-era links: /?s=term (search) and /?p=123 or /?page_id=123 (shortlinks).
+(function () {
+  var q = new URLSearchParams(location.search);
+  if (q.has('s')) { location.replace('/search/?s=' + encodeURIComponent(q.get('s'))); return; }
+  var id = q.get('p') || q.get('page_id');
+  if (id) {
+    fetch('/shortlinks.json').then(function (r) { return r.json(); }).then(function (m) {
+      if (m[id]) location.replace(m[id]);
+    });
+  }
+})();
+</script>
+</head>
+<body class="antialiased bg-gray-100 text-body font-body">
+    <a class="hidden md:block absolute z-50 top-8 right-8 py-1 px-4 text-sm font-semibold text-orange-50 bg-slate-600 hover:bg-slate-700 rounded-md overflow-hidden" href="https://www.wordswhisperedinwater.com?ref=leveesorg">
+      Get the book →
+    </a>
+    <div class="lg:m-4 shadow-gray-400 shadow-lg bg-white border border-gray-400">
+      <section class="relative pb-24 lg:pb-40 overflow-hidden">
+        <header class="flex items-center flex-col">
+          <div class="flex items-center p-4">
+            <a style="min-width: 150px" class="block" href="/">
+              <img src="/wp-content/themes/levees2023/images/logo.png" width="150" height="150" alt="Levees.org">
+            </a>
+            <div class="pl-6">
+              <strong>Join Levees.Org</strong>
+              <p>Since 2005, making sure New Orleans and America<br class="hidden md:block" /> get the safe levees we deserve</p>
+            </div>
+          </div>
+        </header>
+        <nav class="border-navGreen-500 border-y relative bg-gradient-to-b from-navGreen-100 to-navGreen-900 mb-12 md:mb-24 z-50">
+          <div class="container px-4 mx-auto">
+            <div class="flex items-center flex-col relative">
+              <ul class="lg:flex lg:w-auto">
+                <li class="inline-block"><a class="hover:bg-gradient-to-t from-navGreen-100 to-navGreen-900 border-r lg:border-l border-gray-400 px-5 leading-8 align-middle inline-block text-xs text-gray-800 hover:text-black font-medium" href="/blog/">News</a></li>
+                <li class="inline-block"><a class="hover:bg-gradient-to-t from-navGreen-100 to-navGreen-900 border-r border-r-gray-400  px-5 leading-8 align-middle inline-block text-xs text-gray-800 hover:text-black font-medium" href="/press-and-media-resources/">About</a></li>
+                <li class="inline-block"><a class="hover:bg-gradient-to-t from-navGreen-100 to-navGreen-900 border-r border-r-gray-400  px-5 leading-8 align-middle inline-block text-xs text-gray-800 hover:text-black font-medium" href="/mission-and-goals-of-levees-org/">Projects</a></li>
+                <li class="hidden lg:inline-block"><a class="inline-block hover:bg-gradient-to-t from-navGreen-100 to-navGreen-900 border-r border-r-gray-400 px-5 leading-8 align-middle text-xs text-gray-800 hover:text-black font-medium" href="/recent-media-hits/">National press</a></li>
+                <li class="hidden lg:inline-block"><a class="inline-block hover:bg-gradient-to-t from-navGreen-100 to-navGreen-900 border-r border-r-gray-400 px-5 leading-8 align-middle text-xs text-gray-800 hover:text-black font-medium" href="/board-of-directors-and-advisors/">Boards</a></li>
+                <li class="hidden lg:inline-block"><a class="inline-block hover:bg-gradient-to-t from-navGreen-100 to-navGreen-900 border-r border-r-gray-400 px-5 leading-8 align-middle text-xs text-gray-800 hover:text-black font-medium" href="/other/allied-organizations/">Partners</a></li>
+                <li class="hidden md:inline-block"><a class="inline-block hover:bg-gradient-to-t from-navGreen-100 to-navGreen-900 border-r border-r-gray-400 px-5 leading-8 align-middle text-xs text-gray-800 hover:text-black font-medium" href="/educational-resources/">Education</a></li>
+                <li class="hidden md:inline-block"><a class="inline-block hover:bg-gradient-to-t from-navGreen-100 to-navGreen-900 border-r border-r-gray-400 px-5 leading-8 align-middle text-xs text-gray-800 hover:text-black font-medium" href="/contact/">Contact</a></li>
+                <li class="hidden lg:inline-block"><a class="inline-block hover:bg-gradient-to-t from-navGreen-100 to-navGreen-900 border-r border-r-gray-400 px-5 leading-8 align-middle text-xs text-gray-800 hover:text-black font-medium" href="/donate/">Donate</a></li>
+                <li class="navbar-burger lg:hidden inline-block"><span class="hover:bg-gradient-to-t from-navGreen-100 to-navGreen-900 border-r border-gray-400 px-5 leading-8 align-middle inline-block text-xs text-gray-800 hover:text-black font-bold cursor-pointer">More…</span></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="relative container px-4 mx-auto z-20">
+          <div class="max-w-7xl mx-auto">
+		  <p><a class="flex text-xl items-center justify-center w-full lg:w-auto px-5 py-4 mb-16 text-sm font-semibold text-green-900 rounded-2xl border border-green-600 hover:bg-green-100 hover:border-green-800 transition duration-200" href="/flooded-house-museum/">The Flooded House Museum is OPEN for visitors!</a></p>
+            <div class="flex flex-wrap -mx-4 items-center">
+              <div class="w-full lg:w-2/5 px-4 mb-16 lg:mb-0">
+                <div class="relative max-w-lg lg:max-w-md mx-auto lg:mx-0">
+                  <img class="block h-112 md:h-150 w-full rounded-2xl" src="/wp-content/themes/levees2023/images/plaque-reveal-vertical.jpg" alt="">
+                  <div class="absolute bottom-0 right-0 p-7">
+                  </div>
+                </div>
+              </div>
+              <div class="w-full lg:w-3/5 px-4">
+                <div class="max-w-lg lg:max-w-2xl mx-auto lg:mr-0">
+                  <div class="max-w-2xl">
+                    <h1 class="font-heading text-5xl xs:text-6xl md:text-8xl xl:text-10xl font-bold text-gray-900 mb-4">
+                      <span>Why the</span>
+                      <span class="font-serif italic">levees broke</span>
+                    </h1>
+                  </div>
+                  <div class="mb-8">
+                    
+                    <div class="max-w-md">
+                      <p class="md:text-xl text-gray-600 font-semibold mt-2 pt-2">We're educating America on why the levees broke in New Orleans during Hurricane Katrina</p>
+                    </div>
+                  </div>
+                  <div class="sm:flex items-center">
+                    <a class="relative group inline-block w-full sm:w-auto py-4 px-6 text-white font-semibold bg-green-700 rounded-md overflow-hidden" href="/flooded-house-museum">
+                      <div class="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
+                      <div class="relative flex items-center justify-center">
+                        <span class="mr-4">Plan your visit</span>
+                        <span>
+                          <svg width="8" height="12" viewbox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.83 5.29L2.59 1.05C2.49704 0.956274 2.38644 0.881879 2.26458 0.83111C2.14272 0.780342 2.01202 0.754204 1.88 0.754204C1.74799 0.754204 1.61729 0.780342 1.49543 0.83111C1.37357 0.881879 1.26297 0.956274 1.17 1.05C0.983753 1.23736 0.879211 1.49082 0.879211 1.755C0.879211 2.01919 0.983753 2.27264 1.17 2.46L4.71 6L1.17 9.54C0.983753 9.72736 0.879211 9.98082 0.879211 10.245C0.879211 10.5092 0.983753 10.7626 1.17 10.95C1.26344 11.0427 1.37426 11.116 1.4961 11.1658C1.61794 11.2155 1.7484 11.2408 1.88 11.24C2.01161 11.2408 2.14207 11.2155 2.26391 11.1658C2.38575 11.116 2.49656 11.0427 2.59 10.95L6.83 6.71C6.92373 6.61704 6.99813 6.50644 7.04889 6.38458C7.09966 6.26272 7.1258 6.13201 7.1258 6C7.1258 5.86799 7.09966 5.73728 7.04889 5.61543C6.99813 5.49357 6.92373 5.38297 6.83 5.29Z" fill="#FFF2EE"></path>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                    <div class="flex mt-8 sm:mt-0 sm:ml-8 items-center">
+                      
+                      
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-md z-50">
+          <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+          <nav class="relative flex flex-col py-6 px-10 w-full h-full bg-white border-r overflow-y-auto">
+            <div class="text-right mb-2 w-full">
+              <button class="navbar-close inline-block">
+                <svg class="h-6 w-6 text-gray-500 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+            <div>
+              <ul class="mb-2">
+                <li><a class="block py-4 px-5 text-gray-900 hover:bg-green-100 rounded-lg" href="/recent-media-hits/">National press</a></li>
+                <li><a class="block py-4 px-5 text-gray-900 hover:bg-green-100 rounded-lg" href="/board-of-directors/">Board</a></li>
+                <li><a class="block py-4 px-5 text-gray-900 hover:bg-green-100 rounded-lg" href="/board-of-advisors/">Advisors</a></li>
+                <li><a class="block py-4 px-5 text-gray-900 hover:bg-green-100 rounded-lg" href="/other/allied-organizations/">Partners</a></li>
+                <li><a class="md:hidden block py-4 px-5 text-gray-900 hover:bg-green-100 rounded-lg" href="/educational-resources/">Education</a></li>
+                <li><a class="md:hidden block py-4 px-5 text-gray-900 hover:bg-green-100 rounded-lg" href="/contact/">Contact</a></li>
+                <li><a class="block py-4 px-5 text-gray-900 hover:bg-green-100 rounded-lg" href="/donate/">Donate</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </section>
+      <section class="relative pb-20 overflow-hidden">
+        <div class="relative container px-4 mx-auto">
+          <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap -mx-4 mb-18 items-center">
+              <div class="w-full lg:w-2/3 xl:w-1/2 px-4 mb-12 lg:mb-0">
+                <div>
+                  <span class="inline-block py-1 mb-4 px-3 text-sm font-semibold text-green-50 bg-green-800 rounded-full uppercase">Our Accomplishments</span>
+                  <h1 class="font-heading text-5xl xs:text-6xl md:text-7xl font-bold text-gray-900">
+                    <span>Ensuring safe</span>
+                    <span class="font-serif italic">levees for all</span>
+                  </h1>
+                </div>
+              </div>
+              <div class="w-full lg:w-1/3 xl:w-1/2 px-4">
+                <div class="max-w-sm lg:ml-auto">
+                  <p class="text-lg text-gray-500">Levees.org was established in November of 2005 and has the commitment of experts and communities locally and nationally.</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-wrap -mx-4">
+              <div class="w-full xl:w-1/2 px-4 mb-8 xl:mb-0">
+                <a class="relative h-100 md:h-125 group shadow-3xl h-full block" href="/flooded-house-museum/">
+                  <img class="block h-full w-full rounded-3xl opacity-95 group-hover:opacity-100 object-cover" src="/wp-content/themes/levees2023/images/flooded-house-museum-piano-with-overlay.jpg" alt="">
+                  <img class="absolute opacity-80 group-hover:opacity-100 fill-current bottom-0 right-0 m-5" src="/wp-content/themes/levees2023/images/arrow.svg" alt="">
+                  <div class="absolute top-0 left-0 h-full w-full p-8 md:p-12">
+                    <div class="flex flex-col items-start justify-between h-full max-w-sm">
+                      <div>
+                        <span class="block mb-3 text-sm text-green-300 font-semibold uppercase">REMEMBERING THE FLOOD</span>
+                        <h3 class="text-3xl md:text-4xl text-white font-semibold">The Flooded House Museum</h3>
+                        <p class="text-green-100 py-4 text-sm">
+                          Levees.org converted a once-flooded residence 400 feet from the London Avenue Canal east breach site into an educational memorial.
+                        </p>
+                      </div>
+                      <!-- <span class="relative group inline-block w-full xs:w-auto py-4 px-6 text-green-900 hover:text-black font-semibold bg-green-100 rounded-md" href="#">
+                          Plan your visit
+                      </span> -->
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="w-full xl:w-1/2 px-4">
+                <div class="flex flex-wrap h-full -mx-4">
+                  <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+                    <div class="flex flex-col h-full">
+                      <a class="relative block h-1/2 mb-7 rounded-3xl bg-green-50 group" href="/sign-on-letter-connick-hb266/">
+                        <img class="block h-full w-full rounded-3xl opacity-95 group-hover:opacity-100 object-cover" src="/wp-content/themes/levees2023/images/reform-signing-with-overlay.png" alt="">
+                        <div class="absolute top-0 left-0 pt-8 px-8 pb-6 flex flex-col h-full justify-between max-w-sm pr-16">
+                          <span class="text-3xl font-semibold text-blue-100 mb-10">Levee Board Reform</span>
+                          <p class="text-sm text-blue-200 md:mb-6">Levees.org’s campaign for better flood protection laws</p>
+                        </div>
+                        <img class="absolute bottom-0 right-0 m-5" src="/wp-content/themes/levees2023/images/arrow.svg" alt="">
+                      </a>
+                      <a class="relative group block h-1/2 overflow-hidden rounded-3xl bg-red-50 hover:bg-red-100 transition duration-200" href="/historic-plaque-program">
+                        <img class="block w-full rounded-3xl opacity-95 group-hover:opacity-100 object-cover" src="/wp-content/themes/levees2023/images/london-plaque-with-overlay.jpeg" alt="">
+                        <div class="absolute top-0 left-0 pt-8 px-8 pb-6  flex flex-col h-full justify-between max-w-sm pr-16">
+                          <span class="text-3xl font-semibold mb-10 text-cyan-100">Historic Plaques</span>
+                          <p class="text-sm text-cyan-200 md:mb-6">Each plaque is the embodiment of a neighborhood initiative</p>
+                        </div>
+                        <img class="absolute bottom-0 right-0 m-5" src="/wp-content/themes/levees2023/images/arrow.svg" alt="">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+                    <div class="flex flex-col h-full">
+                      <a class="relative block h-full overflow-hidden mb-7 rounded-3xl bg-green-50 group" href="/ap-styleguide">
+                        <img class="block w-full rounded-3xl opacity-95 group-hover:opacity-100" src="/wp-content/themes/levees2023/images/ap-styleguide-with-overlay.jpeg" alt="">                        
+                        <div class="absolute top-0 left-0 pt-8 px-8 pb-6 flex flex-col h-full justify-between max-w-sm pr-16">
+                          <span class="text-3xl font-semibold text-indigo-100">AP Style Guide Change</span>
+                          <p class="text-sm text-blue-200 md:mb-6">Levees.org successfully urged the Associated Press to update its styleguide</p>
+                        </div>
+                        <img class="absolute bottom-0 right-0 m-5" src="/wp-content/themes/levees2023/images/arrow.svg" color="#fff" alt="">
+                      </a>
+                      <a class="relative group block h-full rounded-3xl bg-red-50 hover:bg-red-100 transition duration-200" href="/pivotal-article-in-water-policy-journal">
+                        <img class="block h-full w-full rounded-3xl opacity-95 group-hover:opacity-100 object-cover" src="/wp-content/themes/levees2023/images/water-policy-with-overlay.png" alt="">
+                        <div class="absolute top-0 left-0 pt-8 px-8 pb-6  flex flex-col h-full justify-between max-w-sm pr-16">
+                          <span class="text-3xl font-semibold mb-10 text-cyan-100">Water Policy Article</span>
+                          <p class="text-sm text-cyan-200 md:mb-6">Levees.org collaborates with experts on a watershed journal article</p>
+                        </div>
+                        <img class="absolute bottom-0 right-0 m-5" src="/wp-content/themes/levees2023/images/arrow.svg" alt="">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+             
+      <section class="relative py-20 lg:py-24 bg-gray-800 overflow-hidden">
+        <img class="absolute top-0 left-0 mt-10" src="/wp-content/themes/levees2023/images/star-dark-bg.svg" alt="">
+        <div class="relative container px-4 mx-auto">
+          <div class="text-center mb-18">
+            <span class="inline-block py-1 px-3 mb-4 text-xs font-semibold text-slate-900 bg-slate-100 rounded-full">CURRENT PROJECT</span>
+            <h1 class="font-heading text-5xl xs:text-6xl md:text-7xl font-bold text-white mb-12">
+              <span>A Campaign for</span>
+              <span class="block font-serif italic">Engineering Failure Education</span>
+            </h1>
+          </div>
+          <div class="max-w-lg lg:max-w-3xl xl:max-w-5xl mx-auto">
+            <div class="flex flex-wrap -mx-4">
+              <div class="w-full px-4 mb-12 lg:mb-0">
+                <div class="text-center">
+                  <p class="text-2xl text-gray-50 mb-2">Do you think Engineering Students should receive instruction on Engineering Failures and the Lessons they teach? If yes, add your name!</p>
+                  <a href="https://rallystarter.com/rally/1660/engineering-students-must-learn-about-engineering-failures" class="text-lg bg-green-600 inline-block rounded-full text-white font-bold text-2xl mt-12 py-2 px-6">Add your name</a>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+                
+      <section class="relative py-20 md:py-24 overflow-hidden">
+        <div class="container px-4 mx-auto">
+          <div class="relative max-w-7xl pt-32 pb-24 md:pt-24 px-6 md:px-16 mx-auto">
+            <img class="absolute top-0 left-0 w-full h-full" src="/wp-content/themes/levees2023/images/shape-background.png" alt="">
+            <div class="relative z-10 flex flex-wrap -mx-4 items-end">
+              <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
+                <div class="max-w-md">
+                  <h4 class="font-heading text-4xl sm:text-5xl text-gray-900 font-semibold mb-8 md:mb-16">Become a member</h4>
+                  <div class="md:flex">
+                    <div class="mb-6 md:mb-0 md:mr-3 pt-2 text-gray-600">
+                      <svg width="84" height="10" viewbox="0 0 84 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 4.5C0.585786 4.5 0.25 4.83579 0.25 5.25C0.25 5.66421 0.585786 6 1 6L1 4.5ZM84 5.25001L76.5 0.919879L76.5 9.58013L84 5.25001ZM1 6L77.25 6.00001L77.25 4.50001L1 4.5L1 6Z" fill="#1E2238"></path>
+                      </svg>
+                    </div>
+                    <div class="max-w-sm">
+                      <p class="text-lg font-semibold text-gray-400">Advocate for safe levees in your community and nationwide. It's free.</p>
+                      <span class="block text-xs font-semibold text-gray-400">
+                        <span>1-2 emails monthly, directly from Sandy</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full lg:w-1/2 px-4">
+                <div class="max-w-lg lg:ml-auto">
+                  <div class="sm:flex mb-2 items-center">
+                    <ul>
+                      <li id="mc4wp_form_widget-3" class="widget-container widget_mc4wp_form_widget"><h3 class="widget-title">Join Us</h3><script>(function() {
+	window.mc4wp = window.mc4wp || {
+		listeners: [],
+		forms: {
+			on: function(evt, cb) {
+				window.mc4wp.listeners.push(
+					{
+						event   : evt,
+						callback: cb
+					}
+				);
+			}
+		}
+	}
+})();
+</script><!-- Mailchimp for WordPress v4.15.0 - https://wordpress.org/plugins/mailchimp-for-wp/ --><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-13390" method="post" data-id="13390" data-name="Header" ><div class="mc4wp-form-fields"><p style="margin-bottom: 0.5ex">
+  <label>Email: 
+    <input type="email" name="EMAIL" placeholder="Your email address" required />
+  </label>
+<input type="submit" value="Sign up" />
+</p>
+
+<p>
+    <label style="font-size: 80%">
+        <input name="_mc4wp_lists[]" type="hidden" value="b83f19faad" checked="true">
+    	<input name="_mc4wp_lists[]" type="checkbox" value="b74d14e20e"> <span>Tell me about events in New Orleans</span>
+    </label>
+</p>
+
+</div><label style="display: none !important;">Leave this field empty if you&#039;re human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" value="1794785322" /><input type="hidden" name="_mc4wp_form_id" value="13390" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" /><div class="mc4wp-response"></div></form><!-- / Mailchimp for WordPress Plugin --></li>                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+                
+      <section class="relative pt-20 pb-20 lg:pb-32 overflow-hidden">
+        <div class="relative container px-4 mx-auto">
+          <div class="max-w-md lg:max-w-7xl mx-auto">
+            <div class="flex flex-wrap -mx-4 mb-18 items-center">
+              <div class="w-full lg:w-2/3 xl:w-1/2 px-4 mb-12 lg:mb-0">
+                <div class="max-w-lg">
+                <h1 class="font-heading text-5xl xs:text-6xl md:text-7xl font-bold text-gray-900">
+                    <span>Additional</span>
+                    <span class="font-serif italic">Resources</span>
+                  </h1>
+                </div>
+              </div>
+              <div class="w-full lg:w-1/3 xl:w-1/2 px-4">
+                <div class="max-w-lg lg:ml-auto">
+                  <p class="text-lg text-gray-500">Learn more about the 2005 New Orleans levee failures and gain the tools to advocate for your community.</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-wrap -mx-4">
+              <div class="w-full lg:w-1/3 px-4 mb-12 lg:mb-0">
+                <div>
+                  <img class="block mb-6 w-full h-100 rounded-3xl" src="/2/wp-content/uploads/2025/06/Jacket-cover-2025.jpg" alt="">
+                  <div>
+                    <h3 class="text-3xl font-semibold mb-5">Words Whispered in Water</h3>
+                    <a class="inline-flex items-center justify-center w-full lg:w-auto px-5 py-3 text-sm font-semibold text-green-900 rounded-full border border-green-600 hover:border-green-800 transition duration-200" href="https://www.wordswhisperedinwater.com?ref=leveesorg">
+                      <span class="mr-3">Get the book</span>
+                      <svg width="13" height="13" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.9199 0.62C12.8185 0.375651 12.6243 0.181475 12.3799 0.0799999C12.2597 0.028759 12.1306 0.00157999 11.9999 0H1.99994C1.73472 0 1.48037 0.105357 1.29283 0.292893C1.1053 0.48043 0.999939 0.734784 0.999939 1C0.999939 1.26522 1.1053 1.51957 1.29283 1.70711C1.48037 1.89464 1.73472 2 1.99994 2H9.58994L1.28994 10.29C1.19621 10.383 1.12182 10.4936 1.07105 10.6154C1.02028 10.7373 0.994141 10.868 0.994141 11C0.994141 11.132 1.02028 11.2627 1.07105 11.3846C1.12182 11.5064 1.19621 11.617 1.28994 11.71C1.3829 11.8037 1.4935 11.8781 1.61536 11.9289C1.73722 11.9797 1.86793 12.0058 1.99994 12.0058C2.13195 12.0058 2.26266 11.9797 2.38452 11.9289C2.50638 11.8781 2.61698 11.8037 2.70994 11.71L10.9999 3.41V11C10.9999 11.2652 11.1053 11.5196 11.2928 11.7071C11.4804 11.8946 11.7347 12 11.9999 12C12.2652 12 12.5195 11.8946 12.707 11.7071C12.8946 11.5196 12.9999 11.2652 12.9999 11V1C12.9984 0.869323 12.9712 0.740222 12.9199 0.62Z" fill="green"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full lg:w-1/3 px-4 mb-12 lg:mb-0">
+                <div>
+                  <img class="block mb-6 w-full h-100 rounded-3xl" src="/2/wp-content/uploads/2025/06/slingshot-LOGO.png" alt="">
+                  <div>
+                    <h3 class="text-3xl font-semibold mb-5">The Slingshot</h3>
+                    <a class="inline-flex items-center justify-center w-full lg:w-auto px-5 py-3 text-sm font-semibold text-green-900 rounded-full border border-green-600 hover:border-green-800 transition duration-200" href="https://pod.link/1779795344">
+                      <span class="mr-3">Listen to the podcast</span>
+                      <svg width="13" height="13" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.9199 0.62C12.8185 0.375651 12.6243 0.181475 12.3799 0.0799999C12.2597 0.028759 12.1306 0.00157999 11.9999 0H1.99994C1.73472 0 1.48037 0.105357 1.29283 0.292893C1.1053 0.48043 0.999939 0.734784 0.999939 1C0.999939 1.26522 1.1053 1.51957 1.29283 1.70711C1.48037 1.89464 1.73472 2 1.99994 2H9.58994L1.28994 10.29C1.19621 10.383 1.12182 10.4936 1.07105 10.6154C1.02028 10.7373 0.994141 10.868 0.994141 11C0.994141 11.132 1.02028 11.2627 1.07105 11.3846C1.12182 11.5064 1.19621 11.617 1.28994 11.71C1.3829 11.8037 1.4935 11.8781 1.61536 11.9289C1.73722 11.9797 1.86793 12.0058 1.99994 12.0058C2.13195 12.0058 2.26266 11.9797 2.38452 11.9289C2.50638 11.8781 2.61698 11.8037 2.70994 11.71L10.9999 3.41V11C10.9999 11.2652 11.1053 11.5196 11.2928 11.7071C11.4804 11.8946 11.7347 12 11.9999 12C12.2652 12 12.5195 11.8946 12.707 11.7071C12.8946 11.5196 12.9999 11.2652 12.9999 11V1C12.9984 0.869323 12.9712 0.740222 12.9199 0.62Z" fill="green"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full lg:w-1/3 px-4">
+                <div>
+                  <img class="block mb-6 w-full h-100 rounded-3xl" src="/wp-content/themes/levees2023/images/sandy-speaking-at-podium.jpeg" alt="">
+                  <div>
+                    <h3 class="text-3xl font-semibold mb-5">Sandy Rosenthal</h3>
+                    <a class="inline-flex items-center justify-center w-full lg:w-auto px-5 py-3 text-sm font-semibold text-green-900 rounded-full border border-green-600 hover:border-green-800 transition duration-200" href="https://sandyrosenthal.net/">
+                      <span class="mr-3">Connect with our founder</span>
+                      <svg width="13" height="13" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.9199 0.62C12.8185 0.375651 12.6243 0.181475 12.3799 0.0799999C12.2597 0.028759 12.1306 0.00157999 11.9999 0H1.99994C1.73472 0 1.48037 0.105357 1.29283 0.292893C1.1053 0.48043 0.999939 0.734784 0.999939 1C0.999939 1.26522 1.1053 1.51957 1.29283 1.70711C1.48037 1.89464 1.73472 2 1.99994 2H9.58994L1.28994 10.29C1.19621 10.383 1.12182 10.4936 1.07105 10.6154C1.02028 10.7373 0.994141 10.868 0.994141 11C0.994141 11.132 1.02028 11.2627 1.07105 11.3846C1.12182 11.5064 1.19621 11.617 1.28994 11.71C1.3829 11.8037 1.4935 11.8781 1.61536 11.9289C1.73722 11.9797 1.86793 12.0058 1.99994 12.0058C2.13195 12.0058 2.26266 11.9797 2.38452 11.9289C2.50638 11.8781 2.61698 11.8037 2.70994 11.71L10.9999 3.41V11C10.9999 11.2652 11.1053 11.5196 11.2928 11.7071C11.4804 11.8946 11.7347 12 11.9999 12C12.2652 12 12.5195 11.8946 12.707 11.7071C12.8946 11.5196 12.9999 11.2652 12.9999 11V1C12.9984 0.869323 12.9712 0.740222 12.9199 0.62Z" fill="green"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+                
+             
+      <section class="relative py-20 overflow-hidden">
+        <img class="hidden sm:block absolute bottom-0 left-0 -mb-48 lg:mb-0" src="/wp-content/themes/levees2023/images/blue-light-left.png" alt="">
+        <div class="relative container px-4 mx-auto">
+          <div class="max-w-2xl mx-auto mb-15 text-center">
+            <span class="inline-block py-1 mb-4 px-3 text-sm font-semibold text-green-50 bg-green-800 rounded-full uppercase">Our Blog</span>
+            <h1 class="font-heading text-5xl xs:text-6xl md:text-7xl font-bold">
+              <span>News &amp;</span>
+              <span class="font-serif italic">Articles</span>
+            </h1>
+          </div>
+{%- for post in site.posts limit:3 %}
+                    <a class="max-w-5xl mx-auto block" href="{{ post.url }}">
+            <div class="py-12 border-t-2 border-gray-100">
+              <div class="flex flex-wrap lg:flex-nowrap items-center">
+                <div class="w-full lg:w-auto px-4 mb-8 lg:mb-0">
+                                  </div>
+                <div class="w-full lg:w-9/12 px-4 mb-10 lg:mb-0">
+                  <div class="max-w-2xl">
+                    <span class="block text-gray-400 mb-1">{{ post.date | wp_short_date }}</span>
+                    <p class="text-2xl font-semibold text-gray-900">{{ post.title | strip_html }}</p>
+                  </div>
+                </div>
+                <div class="w-full lg:w-auto px-4 ml-auto text-right">
+                  <span class="inline-flex items-center text-xl font-semibold text-green-900 hover:text-gray-900">
+                    <span class="mr-2">Read</span>
+                    <svg class="animate-bounce" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.33301 14.6668L14.6663 1.3335" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M1.33301 1.3335H14.6663V14.6668" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
           </a>
-        </li>
-        {%- endfor %}
-      </ol>
-    </aside>
-  </div>
-  <p class="container learn-hero-credit">Background: the Army Corps' Authorized Plan of Protection for the Lake Pontchartrain and Vicinity Hurricane Protection Project, 1965.</p>
-</section>
+{%- endfor %}
+                  </div>
+      </section>
 
-<section class="section section-alt">
-  <div class="container">
-    <span class="pill">The short answer</span>
-    <p class="answer" style="margin-top:1.25rem">On August 29, 2005, levees and floodwalls built by the <strong>U.S. Army Corps of Engineers</strong> broke in about 50 places, flooding 80% of New Orleans. Many of the walls fell over with the water <strong>well below their tops</strong>. In the 1980s, the Corps had misread its own load test and driven steel sheet piles <strong>17 feet deep instead of 31 to 46</strong> — saving about $100 million. A federal judge found the Corps responsible. A 1928 law means it never had to pay.</p>
-    <div class="stats">
-      <div class="stat"><span class="stat-number">1,392</span><p>deaths from Hurricane Katrina, per the National Hurricane Center. Levee failures led to the deaths of hundreds.</p></div>
-      <div class="stat"><span class="stat-number">~50</span><p>breaches in the federal hurricane protection system</p></div>
-      <div class="stat"><span class="stat-number">$100M</span><p>saved by the Corps' decision to short-sheet the steel pilings</p></div>
-      <div class="stat"><span class="stat-number">62%</span><p>of Americans live in counties protected by levees</p></div>
+      <section class="relative py-20 md:py-32 overflow-hidden bg-gray-50">
+        <img class="absolute top-0 left-0 mt-44" src="/wp-content/themes/levees2023/images/light-blue-left.png" alt="">
+        <div class="relative container px-4 mx-auto">
+          <div class="max-w-7xl mx-auto">
+            <div class="xl:flex justify-between">
+              <div class="mb-4">
+                <span class="inline-block py-1 px-3 text-sm font-semibold text-green-50 bg-green-800 rounded-full uppercase">Frequently Asked Questions</span>
+                <h1 class="font-heading text-5xl xs:text-6xl md:text-7xl font-bold">
+                  <span>Myth</span>
+                  <span class="font-serif italic">busters</span>
+                </h1>
+              </div>
+              <div class="my-8 flex space-x-4 text-sm">
+                <img src="/2/wp-content/uploads/2023/08/HJ-280.png" alt="HJ Bosworth" class="rounded-full shadow-sm w-28 h-28" />
+                <blockquote class="flex-1 max-w-sm">
+                  “Public perception of levee failures and ongoing risk is largely based on falsehoods. We have done the fact-checking and are proud to present these truths.”
+                  <cite class="block mt-2 text-gray-500">H. J. Bosworth, Jr., P.E.,<br />
+                    Civil Engineer (1982–present)</cite>
+                </blockquote>
+              </div>
+            </div>
+            <div class="flex flex-wrap -mx-4 -mb-8">
+              <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="flex flex-col h-full max-w-xs mx-auto md:max-w-none px-6 py-9 md:pl-9 md:pr-12 bg-white rounded-3xl shadow-lg">
+                  <h4 class="text-xl font-semibold text-gray-900 mb-4">MYTH: New Orleans is below sea level. </h4>
+                  <p class="text-gray-500 mb-4">TRUTH: Half of New Orleans is at or well above sea level.
+      </p>
+                  <a class="inline-block mt-auto text-xs font-semibold text-green-900 hover:underline" href="http://richcampanella.com/assets/pdf/study_Campanella%20analysis%20on%20Above-Sea-Level%20New%20Orleans.pdf">Source: Tulane School of Architecture </a>
+                </div>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="flex flex-col h-full max-w-xs mx-auto md:max-w-none px-6 py-9 md:pl-9 md:pr-12 bg-white rounded-3xl shadow-lg">
+                  <h4 class="text-xl font-semibold text-gray-900 mb-4">MYTH: The vast majority of homeowner losses in New Orleans were uninsured. </h4>
+                  <p class="text-gray-500 mb-4">TRUTH: Pre-Katrina, more New Orleans homeowners had flood insurance per capita than the rest of the nation according to data obtained by Donald Powell with the Bush administration.
+      </p>
+                  <a class="inline-block mt-auto text-xs font-semibold text-green-900 hover:underline" href="wp-content/uploads/2011/04/After-Katrina-Pundits-Criticized-New-Orleans.pdf">Source: New Orleans Times-Picayune</a>
+                </div>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="flex flex-col h-full max-w-xs mx-auto md:max-w-none px-6 py-9 md:pl-9 md:pr-12 bg-white rounded-3xl shadow-lg">
+                  <h4 class="text-xl font-semibold text-gray-900 mb-4">MYTH: The Orleans Levee Board spent only a few hours annually inspecting the levees before going to lunch.</h4>
+                  <p class="text-gray-500 mb-4">TRUTH: The Army Corps of Engineers spent only a few hours annually inspecting the levee districts’ maintenance before going to lunch.
+      </p>
+                  <a class="inline-block mt-auto text-xs font-semibold text-green-900 hover:underline" href="https://iwaponline.com/wp/article/17/4/707-723/20452">Source: Water Policy, Vol 17, Issue 4 Monday Morning Quarterbacking</a>
+                </div>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="flex flex-col h-full max-w-xs mx-auto md:max-w-none px-6 py-9 md:pl-9 md:pr-12 bg-white rounded-3xl shadow-lg">
+                  <h4 class="text-xl font-semibold text-gray-900 mb-4">MYTH: The Orleans Levee Board forced the Army Corps of Engineers to build the inadequate levee system that failed during Hurricane Katrina.</h4>
+                  <p class="text-gray-500 mb-4">TRUTH: As <a href="https://www.nytimes.com/2015/05/24/us/decade-after-katrina-pointing-finger-more-firmly-at-army-corps.html?">reported in the New York Times</a>, experts J. David Rogers and Raymond Seed retracted this erroneous conclusion in their 2006 levee investigation. The levees failed mainly due to a mistake the Army Corps made in the 1980s when interpreting the results of their levee load test study.
+      </p>
+                  <a class="inline-block mt-auto text-xs font-semibold text-green-900 hover:underline" href="#">Source: Water Policy, Vol 17, Issue 4; Abstract</a>
+                </div>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="flex flex-col h-full max-w-xs mx-auto md:max-w-none px-6 py-9 md:pl-9 md:pr-12 bg-white rounded-3xl shadow-lg">
+                  <h4 class="text-xl font-semibold text-gray-900 mb-4">MYTH: New Orleans has a peculiar geography in that it relies heavily on levees for protection. </h4>
+                  <p class="text-gray-500 mb-4">TRUTH: Sixty-two percent of the U.S. population lives in counties protected by levees.
+      </p>
+                  <a style="cursor: zoom-in;" href="/2/wp-content/uploads/2021/04/Levee-by-county-map-5.png">
+                    <img src="/2/wp-content/uploads/2021/04/Levee-by-county-map-5-1024x634.png" alt="Levee by county map" width="1024" height="634" class="mb-8" />
+                  </a>
+                  <a class="inline-block mt-auto text-xs font-semibold text-green-900 hover:underline" href="https://www.nola.com/news/environment/article_87712b66-d815-11ea-82b7-9bcce95a8936.html">Source: FEMA.</a>
+                </div>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="flex flex-col h-full max-w-xs mx-auto md:max-w-none px-6 py-9 md:pl-9 md:pr-12 bg-white rounded-3xl shadow-lg">
+                  <h4 class="text-xl font-semibold text-gray-900 mb-4">MYTH: As Katrina advanced, the residents of New Orleans were warned that the levees could breach. </h4>
+                  <p class="text-gray-500 mb-4">TRUTH: Even the most desperate appeals to residents from local, state or federal officials did not warn that the levees could breach and fail. The first suggestion that levees could fail occurred at 1:47 a.m. in a memo from the Homeland Security Operations Center to the White House Situation Room, six hours after the evacuation was already completed.</p>
+                  <span class="inline-block mt-auto text-xs font-semibold text-green-900">Source: McQuaid and Schleifstein, <u>Path of Destruction</u> (Little Brown and Co, 2006), 179.</span>
+                </div>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="flex flex-col h-full max-w-xs mx-auto md:max-w-none px-6 py-9 md:pl-9 md:pr-12 bg-white rounded-3xl shadow-lg">
+                  <h4 class="text-xl font-semibold text-gray-900 mb-4">MYTH: After the storm, the levee boards were “reformed” and made similar to other levee districts in the U.S.</h4>
+                  <p class="text-gray-500 mb-4">TRUTH: New Orleans was the first urban area in the nation to create a regional board with experts.</p>
+                  <a href="/wp-content/uploads/2011/04/Travel-a-small-price-to-pay-for-levee-oversight.pdf" class="hover:underline inline-block mt-auto text-xs font-semibold text-green-900">Source: New Orleans Times-Picayune</a></div>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="flex flex-col h-full max-w-xs mx-auto md:max-w-none px-6 py-9 md:pl-9 md:pr-12 bg-white rounded-3xl shadow-lg">
+                  <h4 class="text-xl font-semibold text-gray-900 mb-4">MYTH: Environmentalists blocked the Army Corps of Engineers’ original plan for massive peripheral barriers and forced the agency to propose a second inferior design.</h4>
+                  <p class="text-gray-500 mb-4">TRUTH: The Army Corps decided that the High Walls Plan, or raising the heights of the levees, was less costly, less damaging to the environment and more acceptable to local interests.</p>
+                  <a href="https://iwaponline.com/wp/article/17/4/707-723/20452" class="inline-block hover:underline mt-auto text-xs font-semibold text-green-900">Source: Water Policy, Vol 17, Issue 4; Frontage vs parallel protection</a>
+                </div>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="flex flex-col h-full max-w-xs mx-auto md:max-w-none px-6 py-9 md:pl-9 md:pr-12 bg-white rounded-3xl shadow-lg">
+                  <h4 class="text-xl font-semibold text-gray-900 mb-4">MYTH: The local levee districts must be guilty of negligent maintenance because they settled for $20 million.</h4>
+                  <p class="text-gray-500 mb-4">TRUTH: Judge Stanwood Duval’s 2009 settlement in the class action lawsuit against the pre-Katrina levee districts is neither proof of culpability nor acceptance of responsibility. It’s a settlement, and nothing more.</p>
+                  <a href="https://www.nola.com/opinions/index.ssf/2017/08/katrina_flood_settlement.html" class="inline-block hover:underline mt-auto text-xs font-semibold text-green-900">Source: New Orleans Times Picayune</a>
+                </div>
+              </div>
+              <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                <div class="flex flex-col h-full max-w-xs mx-auto md:max-w-none px-6 py-9 md:pl-9 md:pr-12 bg-white rounded-3xl shadow-lg">
+                  <h4 class="text-xl font-semibold text-gray-900 mb-4">MYTH: The Army Corps of Engineers admitted fault for the failure of its levee system during Hurricane Katrina.</h4>
+                  <p class="text-gray-500 mb-4">TRUTH: No corps official has accepted responsibility for the failure of the levees in New Orleans during Hurricane Katrina without simultaneously – and also wrongly – directing blame toward local officials and environmental groups.</p>
+                  <a href="https://iwaponline.com/wp/article/17/4/707-723/20452" class="inline-block hover:underline mt-auto text-xs font-semibold text-green-900">Source: Water Policy, Vol 17, Issue 4; Introduction</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+                
+      <footer class="py-20 bg-gray-900">
+        <div class="container px-4 mx-auto">
+          <div class="max-w-7xl mx-auto">
+            <div class="pb-8 mb-15 border-b border-gray-700 items-center">
+              <div class="flex flex-wrap -mx-4 items-center">
+                <div class="w-full lg:w-1/2 px-4 mb-4 lg:mb-0">
+                  <a class="inline-block" href="/">
+                    <img class="h-15" src="/wp-content/themes/levees2023/images/logo.png" alt="">
+                  </a>
+                </div>
+                <div class="w-full lg:w-1/2 px-4">
+                  <div class="sm:flex -mb-4 items-center lg:justify-end">
+                    <span class="inline-block text-white mb-4 mr-8">Educating America about the 2005 New Orleans Flood</span>
+                    <a class="relative group inline-block w-full sm:w-auto py-3 px-5 mb-4 text-center text-sm font-semibold text-orange-50 hover:text-green-900 bg-green-700 rounded-md overflow-hidden transition duration-300" href="new/flooded-house-museum">
+                      <div class="absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-105 transition duration-500"></div>
+                      <span class="relative">Visit our museum</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-wrap -mb-5 lg:-mx-6 items-center justify-center">
+              <div class="px-4 mb-5"><a class="inline-block text-gray-300 hover:text-gray-200" href="/counties-with-levees">Counties with Levees</a></div>
+              <div class="px-4 mb-5"><a class="inline-block text-gray-300 hover:text-gray-200" href="/book-reviews">Book Reviews</a></div>
+              <div class="px-4 mb-5"><a class="inline-block text-gray-300 hover:text-gray-200" href="/levee-breach-nomination">National Register Project</a></div>
+      <div class="px-4 mb-5"><a class="inline-block text-gray-300 hover:text-gray-200" href="/personal-attacks-and-lies-posted-to-internet-by-army-corps-of-engineers">Army Corps’ Smear Campaign</a></div>
+            </div>
+            <div class="mt-15 text-center">
+				<p>
+					<a class="text-gray-400 hover:text-gray-300" href="mailto:info@levees.org">Contact info@levees.org</a>
+				</p>
+              <p class="text-gray-500 mt-2">Designed by <a class="text-gray-400 hover:text-gray-300" href="https://stanfordrosenthal.com">Stanford Rosenthal</a>.  Powered by <a class="text-gray-400 hover:text-gray-300" href="https://wordpress.org">Wordpress</a>.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="pill">The course</span>
-        <h2 class="section-title" style="margin-top:.75rem">Four parts, <em>fifteen lessons</em></h2>
-      </div>
-      <p>Each lesson takes five to ten minutes, draws on two decades of Levees.org research, and links to the primary sources.</p>
-    </div>
-    {% for part in site.data.parts %}
-    <div class="part-block" id="{{ part.id }}">
-      <h3 style="font-size:1.5rem">{{ part.heading }}</h3>
-      <p>{{ part.blurb }}</p>
-      <div class="lesson-grid">
-        {% for l in lessons %}{% if l.part == part.id %}
-        {% include lesson-card.html lesson=l %}
-        {% endif %}{% endfor %}
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="section section-dark quote-band">
-  <img class="star" src="{{ '/assets/images/star-dark-bg.svg' | relative_url }}" alt="">
-  <div class="container" style="position:relative">
-    <span class="pill pill-light">No one blames the iceberg</span>
-    <blockquote style="margin-top:1.5rem">“In 1912, the Titanic sank and no one blames the iceberg. Levees.org will say ‘mission accomplished’ when, with regard to the catastrophic flooding during Katrina, no one blames the hurricane.”
-      <cite>— Levees.org</cite>
-    </blockquote>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="pill">Keep exploring</span>
-        <h2 class="section-title" style="margin-top:.75rem">Tools for <em>the truth</em></h2>
-      </div>
-      <p>Quick references for students, reporters and anyone who wants the facts at their fingertips.</p>
-    </div>
-    <div class="feature-grid">
-      <a class="feature" href="{{ '/myths/' | relative_url }}">
-        <img class="feature-bg" src="{{ '/assets/images/man-on-roof.jpg' | relative_url }}" alt="">
-        <div class="feature-body"><span class="feature-kicker">Myth vs. truth</span><h3>Myth busters</h3><p>{{ site.data.myths | size }} common myths about the 2005 flooding, and the facts that bust them.</p></div>
-        <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
-      </a>
-      <a class="feature" href="{{ '/timeline/' | relative_url }}">
-        <img class="feature-bg" src="{{ '/assets/images/wdsu-1991.jpg' | relative_url }}" alt="">
-        <div class="feature-body"><span class="feature-kicker">1897 – today</span><h3>Timeline</h3><p>The levee failures were 40 years in the making. See them in order.</p></div>
-        <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
-      </a>
-      <a class="feature" href="{{ '/library/' | relative_url }}">
-        <img class="feature-bg" src="{{ '/assets/images/water-policy-overlay.jpg' | relative_url }}" alt="">
-        <div class="feature-body"><span class="feature-kicker">Primary sources</span><h3>The record</h3><p>Every major levee investigation, the court rulings, and the books to read next.</p></div>
-        <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
-      </a>
-      <a class="feature" href="{{ '/quiz/' | relative_url }}">
-        <img class="feature-bg" src="{{ '/assets/images/bellaire-before-after.jpg' | relative_url }}" alt="">
-        <div class="feature-body"><span class="feature-kicker">Ten questions</span><h3>Test your knowledge</h3><p>Separate facts from fairy tales.</p></div>
-        <img class="arrow" src="{{ '/assets/images/arrow.svg' | relative_url }}" alt="">
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <h2 class="section-title">Additional <em>resources</em></h2>
-      </div>
-      <p>Learn more about the 2005 New Orleans levee failures and gain the tools to advocate for your community.</p>
-    </div>
-    <div class="resource-grid">
-      <div class="resource">
-        <img src="{{ '/assets/images/book-cover-2025.jpg' | relative_url }}" alt="Cover of Words Whispered in Water, Anniversary Edition" style="object-fit:contain;background:#fff">
-        <h3>Words Whispered in Water</h3>
-        <p>Founder Sandy Rosenthal's award-winning account of why the levees broke and how the truth was buried.</p>
-        <a class="btn-outline" href="https://www.wordswhisperedinwater.com?ref=learnleveesorg">Get the book ↗</a>
-      </div>
-      <div class="resource">
-        <img src="{{ '/assets/images/exhibit-hall.jpg' | relative_url }}" alt="Founder Sandy Rosenthal at the Levee Exhibit Hall">
-        <h3>Visit the breach sites</h3>
-        <p>The Flooded House Museum and Levee Exhibit Hall are free and open every day at the London Avenue Canal breach.</p>
-        <a class="btn-outline" href="{{ '/visit/' | relative_url }}">Plan your visit →</a>
-      </div>
-      <div class="resource">
-        <img src="{{ '/assets/images/sandy-podium.jpg' | relative_url }}" alt="Sandy Rosenthal speaking at a podium">
-        <h3>Join Levees.org</h3>
-        <p>Advocate for safe levees in your community and nationwide. It's free: 1–2 emails monthly, directly from Sandy.</p>
-        <a class="btn-outline" href="https://levees.org">Sign up at Levees.org ↗</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <script src="https://cdn.usefathom.com/script.js" data-site="TSAPDDRI" defer></script>
+  </body>
+</html>

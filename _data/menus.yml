@@ -1,0 +1,96 @@
+# Menus copied from the WordPress site. page_id marks links to a page (used to
+# highlight the current page, like WordPress did). Edit labels and links here.
+top-navigation:
+- id: 14817
+  label: News
+  url: /blog/
+  page_id: 14487
+- id: 4953
+  label: About
+  url: /press-and-media-resources/
+  page_id: 75
+- id: 4973
+  label: Projects
+  url: /mission-and-goals-of-levees-org/
+  page_id: 3138
+- id: 12232
+  label: National press
+  url: /recent-media-hits/
+  page_id: 12227
+- id: 14816
+  label: Boards
+  url: /board-of-directors-and-advisors/
+  title: Board of Directors and Advisors
+  page_id: 11074
+- id: 12508
+  label: Partners
+  url: /other/allied-organizations/
+  page_id: 3834
+- id: 11176
+  label: Education
+  url: /educational-resources/
+  page_id: 11172
+- id: 11029
+  label: Contact
+  url: /contact/
+  page_id: 60
+- id: 4954
+  label: Donate
+  url: /donate/
+  page_id: 2255
+media-hits:
+- id: 6338
+  label: ALL RECENT PRESS
+  url: https://pinboard.in/u:LeveesOrg/
+- id: 6337
+  label: Press before June 1, 2009
+  url: /press-archive/
+  page_id: 926
+quick-links:
+- id: 15029
+  label: Public Safety Campaign
+  url: https://efeducation.notion.site/Engineering-Failures-Education-4535d3ba3214404c959518bd85ad4a9c
+  children:
+  - id: 15030
+    label: Stragegic plan
+    url: https://efeducation.notion.site/Our-Plan-of-Action-20b38bd9e6bc4ca883efeb61e9b2c9b0
+- id: 12830
+  label: Plan Your Visit
+  url: /flooded-house-museum/
+  page_id: 11145
+- id: 15244
+  label: Levee Exhibit with Photos
+  url: /levee-exhibition-full-length-version/
+  page_id: 8821
+- id: 5794
+  label: U.S. Counties with Levees
+  url: /counties-with-levees/
+  page_id: 5680
+- id: 12339
+  label: Major Levee Studies
+  url: /major-levee-studies/
+  page_id: 12269
+- id: 11214
+  label: Frequently Asked Questions
+  url: /myth-busters-by-levees-org/
+  page_id: 4554
+- id: 12422
+  label: Levee Legislation
+  url: /sign-on-letter-connick-hb266/
+  page_id: 9930
+- id: 11206
+  label: N.O. Levees on Nat’l Historic List
+  url: /levee-breach-nomination/
+  page_id: 4865
+  children:
+  - id: 14349
+    label: Media coverage
+    url: /media-coverage/
+    page_id: 14338
+  - id: 11237
+    label: Preliminary study
+    url: /2/wp-content/uploads/2018/09/Final-Version-for-NPS_-2018-PDF-.pdf
+- id: 5118
+  label: Book Reviews by Founder
+  url: /book-reviews/
+  page_id: 1725

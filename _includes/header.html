@@ -1,46 +1,21 @@
-<header class="site-header">
-  <div class="brand">
-    <a class="brand-logo" href="{{ site.main_site }}/">
-      <img src="{{ '/assets/images/logo.png' | relative_url }}" width="150" height="100" alt="Levees.org">
-    </a>
-    <div class="brand-text">
-      <strong>Join Levees.Org</strong>
-      <p>Since 2005, making sure New Orleans and America<br class="hide-sm"> get the safe levees we deserve</p>
-    </div>
-  </div>
-</header>
-<nav class="site-nav" aria-label="Levees.org">
-  <ul>
-    {%- for item in site.data.navigation.main %}
-    {%- if item.learn %}{% assign href = item.url | relative_url %}{% else %}{% assign href = item.url %}{% endif %}
-    <li class="show-{{ item.show }}{% if item.learn %} nav-learn{% endif %}"><a href="{{ href }}"{% if item.learn %} aria-current="true"{% endif %}>{{ item.title }}</a></li>
-    {%- endfor %}
-    <li class="nav-more"><button type="button" class="nav-toggle" aria-expanded="false" aria-controls="drawer">More…</button></li>
-  </ul>
-</nav>
-<nav class="learn-nav" aria-label="Learn">
-  <div class="learn-nav-inner">
-    <a class="learn-nav-home" href="{{ '/' | relative_url }}">Learn</a>
-    <ul>
-      {%- for item in site.data.navigation.learn %}
-      {%- assign active = false %}
-      {%- if item.url == "/" and page.url == "/" %}{% assign active = true %}
-      {%- elsif item.url != "/" and page.url contains item.match %}{% assign active = true %}{% endif %}
-      <li><a href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
-      {%- endfor %}
-    </ul>
-  </div>
-</nav>
-<div class="drawer" id="drawer" hidden>
-  <div class="drawer-backdrop" data-close></div>
-  <nav class="drawer-panel" aria-label="More Levees.org pages">
-    <button type="button" class="drawer-close" data-close aria-label="Close menu">×</button>
-    <ul>
-      {%- for item in site.data.navigation.main %}
-      {%- unless item.show == "all" %}
-      <li class="drawer-{{ item.show }}"><a href="{{ item.url }}">{{ item.title }}</a></li>
-      {%- endunless %}
-      {%- endfor %}
-    </ul>
-  </nav>
-</div>
+
+<div id="container" class="hfeed">
+	<div id="join">
+		<a href="https://levees.org"><img src="/wp-content/themes/levees2023/images/logo.png" alt="Levees.Org" /></a>
+		<div id="join_teaser">
+			<h1>Join Levees.Org</h1>
+			<p>Since 2005, making sure New Orleans and America get the safe levees we deserve</p>
+		</div>
+
+	</div>
+	<div id="video">
+		<a href="https://www.wordswhisperedinwater.com" onclick="javascript:_gaq.push(['_trackEvent','outbound-widget','http://www.wordswhisperedinwater.com']);" style="display:block; color: #fff; text-align: center; text-decoration: none; padding: 4ex 1em; font-weight: bold; border-radius: 15px; background-color: #5d6986; margin: 3.5ex 2em 0 0;
+    background: #5d6986 -webkit-gradient(linear, 0% 0%, 0% 100%, from(#606c88), to(#404d6c));"><strong style="display: block; margin-top: 1ex; font-weight: 800; font-size: 125%">Get the book →</strong></a>
+	</div>
+
+	<div class="menu-top-navigation-container"><ul id="menu-top-navigation" class="menu">{% include menu-items.html items=site.data.menus.top-navigation %}</ul></div>	
+	<div id="main">
+
+
+
+		

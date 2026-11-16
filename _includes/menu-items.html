@@ -1,0 +1,21 @@
+{%- comment -%}
+Renders WordPress-style menu <li>s from _data/menus.yml. A link to the page
+being viewed gets "current-menu-item" (styled by the theme), as in WordPress.
+{%- endcomment -%}
+{%- for item in include.items -%}
+{%- if item.page_id -%}{%- assign kind = "menu-item-type-post_type menu-item-object-page" -%}{%- else -%}{%- assign kind = "menu-item-type-custom menu-item-object-custom" -%}{%- endif -%}
+{%- assign current = false -%}
+{%- if item.page_id and item.page_id == page.wp_id and page.layout == "page" -%}{%- assign current = true -%}{%- elsif item.page_id and item.page_id == 14487 and page.archive_type == "blog" and page.page_num == 1 -%}{%- assign current = true -%}{%- elsif item.page_id == nil and item.url == page.url -%}{%- assign current = true -%}{%- endif -%}
+{%- assign child_current = false -%}{%- for c in item.children -%}{%- if c.page_id and c.page_id == page.wp_id and page.layout == "page" -%}{%- assign child_current = true -%}{%- endif -%}{%- endfor -%}
+{%- capture classes -%}menu-item {{ kind }}{% if child_current %} current-menu-ancestor current-menu-parent{% if item.page_id %} current_page_parent current_page_ancestor{% endif %}{% endif %}{% if current %} current-menu-item{% if item.page_id %} page_item page-item-{{ item.page_id }} current_page_item{% endif %}{% endif %}{% if item.page_id == 14487 and page.layout != "page" and page.layout != nil %} current_page_parent{% endif %}{% if item.children %} menu-item-has-children{% endif %} menu-item-{{ item.id }}{%- endcapture -%}
+<li id="menu-item-{{ item.id }}" class="{{ classes }}"><a href="{{ item.url }}"{% if item.title %} title="{{ item.title }}"{% endif %}{% if current %} aria-current="page"{% endif %}>{{ item.label }}</a>
+{%- if item.children %}
+<ul class="sub-menu">
+{%- for child in item.children %}
+{%- assign c = child -%}{%- if c.page_id -%}{%- assign ck = "menu-item-type-post_type menu-item-object-page" -%}{%- else -%}{%- assign ck = "menu-item-type-custom menu-item-object-custom" -%}{%- endif -%}{%- assign ccur = false -%}{%- if c.page_id and c.page_id == page.wp_id and page.layout == "page" -%}{%- assign ccur = true -%}{%- endif %}
+	<li id="menu-item-{{ c.id }}" class="menu-item {{ ck }}{% if ccur %} current-menu-item page_item page-item-{{ c.page_id }} current_page_item{% endif %} menu-item-{{ c.id }}"><a href="{{ c.url }}"{% if ccur %} aria-current="page"{% endif %}>{{ c.label }}</a></li>
+{%- endfor %}
+</ul>
+{% endif -%}
+</li>
+{% endfor -%}

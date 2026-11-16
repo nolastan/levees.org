@@ -1,0 +1,40 @@
+---
+layout: null
+permalink: /feed/
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	>
+
+<channel>
+	<title>{{ site.title }}</title>
+	<atom:link href="{{ site.url }}/feed/" rel="self" type="application/rss+xml" />
+	<link>{{ site.url }}</link>
+	<description>{{ site.description }}</description>
+	<lastBuildDate>{{ site.posts.first.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+{%- for post in site.posts limit:10 %}
+{%- assign body = post.content | replace: 'href="/', 'href="' | replace: 'href="', 'href="§' | replace: 'href="§http', 'href="http' | replace: 'href="§mailto', 'href="mailto' | replace: 'href="§#', 'href="#' | replace: 'href="§', abs | replace: 'src="/', 'src="§' | replace: 'src="§/', 'src="//' | replace: 'src="§', abs | replace: ', /', ', ' | replace: 'srcset="/', 'srcset="' %}
+	<item>
+		<title>{{ post.title | xml_escape }}</title>
+		<link>{{ site.url }}{{ post.url }}</link>
+		<dc:creator><![CDATA[{{ post.author }}]]></dc:creator>
+		<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+{%- for c in post.categories %}
+		<category><![CDATA[{{ site.data.categories[c].name }}]]></category>
+{%- endfor %}
+		<guid isPermaLink="false">{% if post.wp_id %}{{ site.url }}/?p={{ post.wp_id }}{% else %}{{ site.url }}{{ post.url }}{% endif %}</guid>
+		<description><![CDATA[{% include excerpt.html post=post %}]]></description>
+		<content:encoded><![CDATA[{{ post.content | absolute_links }}]]></content:encoded>
+	</item>
+{%- endfor %}
+</channel>
+</rss>

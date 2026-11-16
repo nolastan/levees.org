@@ -125,6 +125,11 @@ module LeveesOrg
       parts.first.to_s.sub(/\s*<p>\s*\z/, "\n")
     end
 
+    # On the post's own page WordPress turns <!--more--> into an anchor.
+    def wp_more_anchor(html, id)
+      html.to_s.sub(/<!--more(?:.*?)?-->/, %(<span id="more-#{id}"></span>))
+    end
+
     # Root-relative links and images -> absolute, for the RSS feed.
     def absolute_links(html)
       base = @context.registers[:site].config["url"].to_s

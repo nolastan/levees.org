@@ -45,7 +45,25 @@ def frontend_html(content):
     Undo both so the pages match what visitors saw."""
     content = re.sub(r'<p>(<div id="attachment_[^"]*"[^>]*>(?:(?!</div>).)*</div>)</p>', r'\1', content, flags=re.S)
     content = re.sub(r'<p>(<div id="attachment_[^"]*"[^>]*>(?:(?!</div>).)*</div>)', r'\1<p>', content, flags=re.S)
-    content = re.sub(r'((?:id|aria-describedby)="(?:caption-)?attachment[-_]\d+)-\d+"', r'\1"', content)
+    # Drop a "-N" suffix only when the plain id isn't used yet in this post
+    # (a genuinely repeated image keeps its "-2", as on the live site).
+    seen = set()
+    def dedupe(m):
+        base = m.group(2)
+        if base in seen:
+            return m.group(0)
+        seen.add(base)
+        return m.group(1) + base + '"'
+    content = re.sub(r'(id=")(attachment_\d+)(?:-\d+)?"', dedupe, content)
+    seen_c = set()
+    def dedupe_c(m):
+        base = m.group(2)
+        key = (m.group(1), base)
+        if key in seen_c:
+            return m.group(0)
+        seen_c.add(key)
+        return m.group(1) + base + '"'
+    content = re.sub(r'((?:id|aria-describedby)=")(caption-attachment-\d+)(?:-\d+)?"', dedupe_c, content)
     return content
 
 def yq(s):

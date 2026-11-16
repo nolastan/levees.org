@@ -120,14 +120,14 @@ module LeveesOrg
 
     # Text before <!--more--> (lists show only that part, as the theme did).
     def wp_more(html)
-      parts = html.to_s.split(/<!--more(?:.*?)?-->/, 2)
+      parts = html.to_s.split(/<!--more.*?-->/, 2)
       return html if parts.size == 1
       parts.first.to_s.sub(/\s*<p>\s*\z/, "\n")
     end
 
     # On the post's own page WordPress turns <!--more--> into an anchor.
     def wp_more_anchor(html, id)
-      html.to_s.sub(/<!--more(?:.*?)?-->/, %(<span id="more-#{id}"></span>))
+      html.to_s.sub(/<!--more.*?-->/, %(<span id="more-#{id}"></span>))
     end
 
     # Root-relative links and images -> absolute, for the RSS feed.

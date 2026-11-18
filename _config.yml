@@ -50,6 +50,8 @@ plugins:
 
 exclude:
   - reference/
+  - docs/
+  - netlify.toml
   - scripts/
   - README.md
   - AGENTS.md

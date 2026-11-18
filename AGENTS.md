@@ -7,17 +7,34 @@ Actions builds and publishes to GitHub Pages on every push to `main`.
 
 ## Who you are helping
 
-The site is run by Sandy Rosenthal (founder) and her son Stanford ("Stan"). Sandy is
-not a programmer. When working with her:
+The site is run by Sandy Rosenthal (founder) and her son Stanford ("Stan", GitHub
+`nolastan`). **Unless you are clearly talking to Stan, assume you are talking to Sandy.**
+Sandy is a retired grandmother, not a programmer. She fixes things on existing pages
+and writes news posts, and she does it by chatting with you. Her changes go live as
+soon as she says yes; nobody else reviews them.
 
-- Use plain language. Don't mention Jekyll, YAML, front matter, Liquid, git, branches
-  or pull requests unless she asks. Say "the page", "the post", "publish".
-- Do the technical work yourself: create the file, preview it, commit, open the pull
-  request. Tell her what changed and give her a link to look at.
-- Before anything goes live, show her the result (a preview link or a screenshot) and
-  get a clear yes.
+When working with Sandy, read **[`docs/working-with-sandy.md`](docs/working-with-sandy.md)**
+first. In short:
+
+- Talk like a helpful person at the office, not a programmer. Never say git, branch,
+  commit, pull request, merge, markdown, HTML, YAML, front matter, Jekyll, build,
+  deploy, repository, Netlify or GitHub to her. Say "the page", "the post", "a
+  preview", "publish", "live".
+- Do all the technical work yourself: find the page, make the change, check it, show
+  her a preview link, and publish when she says yes. Never ask her to run, install,
+  click or approve anything technical.
+- Before anything goes live, show her the preview and get a clear yes.
 - Never invent a fact, quote, date or statistic. Accuracy is the point of this site.
   If something needs checking, say so and ask.
+
+The step-by-step instructions are skills in `.claude/skills/`:
+
+| Skill | Use it when Sandy… |
+| --- | --- |
+| `find-and-edit` | wants something changed on a page or post ("fix the phone number on the contact page"). |
+| `write-post` | wants a new news post. |
+| `add-image-or-pdf` | sends a photo, picture or document to put on the site. |
+| `preview-and-publish` | is ready to see a change, says yes, wants to undo something, or when anything fails. |
 
 ## The rule for now: keep it looking exactly like it did
 
@@ -44,6 +61,11 @@ Visitors shouldn't notice the move.
 | `shortlinks.json` | `?p=123` / `?page_id=123` → URL, used by the home page to forward old shortlinks. |
 | `wp-content/`, `2/wp-content/` | Theme files and uploads at their original WordPress URLs. Old uploads live under `/wp-content/uploads/`, newer ones under `/2/wp-content/uploads/`. Both are real paths; keep them. |
 | `reference/` | **Not published.** Unreviewed draft material from the retired learn.levees.org experiment. See `reference/README.md`. |
+| `scripts/find_page.py` | Finds the file behind a web address or a few title words: `python3 scripts/find_page.py https://levees.org/donate/`. |
+| `scripts/check.sh` | Checks changed posts and pages (`scripts/check_content.py`), then builds the site. Run before every publish. |
+| `docs/` | **Not published.** `working-with-sandy.md` (how to help Sandy) and `setup-for-stan.md` (one-time account setup). |
+| `.claude/skills/` | Step-by-step instructions for Sandy's kinds of requests (see above). |
+| `netlify.toml` | Deploy previews on Netlify: every pull request gets a preview site. |
 | `scripts/import_wordpress.py` | The one-time WordPress import, kept as a record. Don't re-run it over edited content. |
 | `.github/workflows/deploy.yml` | Build and deploy. |
 
@@ -100,6 +122,9 @@ npx pagefind@1.3.0 --site _site            # build the search index into _site/p
 ```
 
 `LANG=C.UTF-8` matters: some URLs contain curly apostrophes.
+
+Or run `scripts/check.sh`, which checks changed content and builds the site the way
+the live site is built.
 
 Before committing: the build finishes with no errors, and the pages you touched look
 right next to the live site. Don't change URLs. Old links from around the web must

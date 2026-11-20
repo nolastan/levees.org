@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(scripts/check.sh)",
+      "Bash(python3 scripts/check_content.py *)",
+      "Bash(python3 scripts/find_page.py *)",
+      "Bash(bundle install)",
+      "Bash(bundle exec jekyll *)",
+      "Bash(git fetch *)", "Bash(git checkout *)", "Bash(git add *)",
+      "Bash(git commit *)", "Bash(git revert *)", "Bash(git push -u origin *)",
+      "Bash(convert *)", "Bash(identify *)", "Bash(gs *)",
+      "mcp__github__create_pull_request",
+      "mcp__github__pull_request_read",
+      "mcp__github__merge_pull_request",
+      "mcp__github__actions_list",
+      "mcp__github__get_job_logs"
+    ]
+  }
+}
